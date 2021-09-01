@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rr</title>
+    <link>https://taarr.github.io/</link>
+    <description>Recent content on rr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://taarr.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>t</title>
+      <link>https://taarr.github.io/examples/</link>
+      <pubDate>Wed, 01 Sep 2021 09:59:31 +0800</pubDate>
+      
+      <guid>https://taarr.github.io/examples/</guid>
+      <description>Test</description>
+    </item>
+    
+  </channel>
+</rss>
