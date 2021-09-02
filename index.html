@@ -6,9 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.87.0" />
   
-  <meta name="description" content=" Your shell script multi-tool Automate all the things   Install or Download (&lt;3MiB static executable) Go 1.16&#43;
-GOBIN=/usr/local/bin go install github.com/tongson/rr@0.13.0  Download (Linux amd64/x86_64)
-curl -LO https://github.com/tongson/rr/releases/download/0.13.0/rr   shell script manager and runner inspired by rerun[1], bashing[2], and drist[3]  [1] github.com/rerun/rerun [2] github.com/xsc/bashing [3] bitreich.org/drist   Modes: Local (requires tar) Local container (Linux only, requires nsenter and rsync) Remote (requires OpenSSH)   Can be used for: Runbooks Launchers Deployment Release Engineering Builds Compiles Testing Configuration Management ">
+  <meta name="description" content="Your shell script multi-tool     Install or Download (&lt;3MiB static executable) Go 1.16&#43;
+GOBIN=/usr/local/bin go install github.com/tongson/rr@0.14.0  Download for Linux amd64/x86_64
+curl -L https://github.com/tongson/rr/releases/download/0.14.0/rr.linux-amd64 -o rr  Download for Linux 32-bit
+curl -L https://github.com/tongson/rr/releases/download/0.14.0/rr.linux-i386 -o rr  Download for macOS Intel
+curl -L https://github.com/tongson/rr/releases/download/0.14.0/rr.macos-intel -o rr  Download for macOS m1 (arm64)
+curl -L https://github.com/tongson/rr/releases/download/0.14.0/rr.macos-m1 -o rr     shell script manager and runner inspired by rerun[1], bashing[2], and drist[3]  [1] github.">
   <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
   
   
@@ -114,19 +117,6 @@ audio {
       
     
     
-    <a class="nav-link " href="/tutorial/"><i data-feather="play"></i> Tutorial</a>
-  
-    
-    
-      
-      
-      
-      
-      
-        
-      
-    
-    
     <a class="nav-link " href="/examples/"><i data-feather="edit"></i> Examples</a>
   
     
@@ -166,6 +156,19 @@ audio {
       
     
     
+    <a class="nav-link " href="/changelog"><i data-feather="play"></i> Changelog</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
     <a class="nav-link " href="https://github.com/tongson/rr"><i data-feather="github"></i> Source</a>
   
   </nav>
@@ -179,40 +182,54 @@ audio {
 
   <h1>rr</h1>
   <br/>
-<h2 id="your-shell-script-multi-tool">Your shell script multi-tool</h2>
-<h2 id="automate-all-the-things">Automate all the things</h2>
+<h4 id="your-shell-script-multi-tool">Your shell script multi-tool</h4>
+<br/>
+<br/>
+<p><img src="static/toolbox.png" alt="toolbox"></p>
 <br/>
 <br/>
 <h6 id="install-or-download-3mib-static-executable">Install or Download (&lt;3MiB static executable)</h6>
-<p>Go 1.16+</p>
-<pre><code>GOBIN=/usr/local/bin go install github.com/tongson/rr@0.13.0
+<p><sub>Go 1.16+</sub></p>
+<pre><code>GOBIN=/usr/local/bin go install github.com/tongson/rr@0.14.0
 </code></pre>
-<p>Download (Linux amd64/x86_64)</p>
-<pre><code>curl -LO https://github.com/tongson/rr/releases/download/0.13.0/rr
+<p><sub>Download for Linux amd64/x86_64</sub></p>
+<pre><code>curl -L https://github.com/tongson/rr/releases/download/0.14.0/rr.linux-amd64 -o rr
 </code></pre>
+<p><sub>Download for Linux 32-bit</sub></p>
+<pre><code>curl -L https://github.com/tongson/rr/releases/download/0.14.0/rr.linux-i386 -o rr
+</code></pre>
+<p><sub>Download for macOS Intel</sub></p>
+<pre><code>curl -L https://github.com/tongson/rr/releases/download/0.14.0/rr.macos-intel -o rr
+</code></pre>
+<p><sub>Download for macOS m1 (arm64)</sub></p>
+<pre><code>curl -L https://github.com/tongson/rr/releases/download/0.14.0/rr.macos-m1 -o rr
+</code></pre>
+<br/>
+<br/>
+<p><img src="static/goat.png" alt="div"></p>
 <br/>
 shell script manager and runner inspired by rerun[1], bashing[2], and drist[3]
 <br/>
-[1] github.com/rerun/rerun<br/>
-[2] github.com/xsc/bashing<br/>
-[3] bitreich.org/drist<br/>
+<sup><sub>[1] github.com/rerun/rerun</sub></sup><br/>
+<sup><sub>[2] github.com/xsc/bashing</sub></sup><br/>
+<sup><sub>[3] bitreich.org/drist</sub></sup><br/>
 <br/>
 <br/>
-Modes:<br/>
-Local (requires tar)<br/>
-Local container (Linux only, requires nsenter and rsync)<br/>
-Remote (requires OpenSSH)<br/>
+<h2 id="modes">Modes</h2>
+<p><strong>Local</strong> (requires <code>tar(1)</code>)<br/>
+<strong>Local container</strong> (Linux only, requires <code>nsenter(1)</code> and <code>rsync(1)</code>)<br/>
+<strong>Remote</strong> (requires OpenSSH, <code>ssh(1)</code> and <code>sftp(1)</code>)<br/>
 <br/>
-<br/>
-Can be used for:<br/>
-Runbooks<br/>
+<br/></p>
+<h2 id="for">For</h2>
+<p>Runbooks<br/>
 Launchers<br/>
 Deployment<br/>
 Release Engineering<br/>
 Builds<br/>
 Compiles<br/>
 Testing<br/>
-Configuration Management<br/>
+Configuration Management<br/></p>
 
 
 </div>
@@ -223,7 +240,7 @@ Configuration Management<br/>
     
 <footer id="footer" class="mt-auto text-center text-muted">
   <div class="container">
-    (c)2021
+    MIT License 2021
   </div>
 </footer>
 

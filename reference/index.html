@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.87.0" />
   
-  <meta name="description" content="&gt; Table of Contents &lt;  Why Invocation Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
-CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing &#43; drist.">
+  <meta name="description" content="&gt; Table of Contents &lt;  Why Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
+CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing &#43; drist. Cons mostly outweight the pros.">
   <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
   
   
@@ -111,19 +111,6 @@ audio {
       
     
     
-    <a class="nav-link " href="/tutorial/"><i data-feather="play"></i> Tutorial</a>
-  
-    
-    
-      
-      
-      
-      
-      
-        
-      
-    
-    
     <a class="nav-link " href="/examples/"><i data-feather="edit"></i> Examples</a>
   
     
@@ -165,6 +152,19 @@ audio {
       
     
     
+    <a class="nav-link " href="/changelog"><i data-feather="play"></i> Changelog</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
     <a class="nav-link " href="https://github.com/tongson/rr"><i data-feather="github"></i> Source</a>
   
   </nav>
@@ -179,7 +179,6 @@ audio {
 <h3 id="-table-of-contents-">&gt; Table of Contents &lt;</h3>
 <ul>
 <li><a href="#why">Why</a></li>
-<li><a href="#invocation">Invocation</a></li>
 <li><a href="#multicall-modes">Multicall Modes</a>
 <ul>
 <li><a href="#console">Console</a></li>
@@ -198,17 +197,9 @@ audio {
 <hr>
 <h3 id="why">Why</h3>
 <p>I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.</p>
-<p>CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing + drist. Cons mostly outweight the pros. Slow and complicated are the common complaints.</p>
+<p>CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing + drist. Cons mostly outweight the pros. Slow and complicated are the common complaints. If you&rsquo;re just templating shell commands then plain shell scripts should suffice.</p>
 <p>According to the Lindy effect; shell scripts, openssh and tar will outlive these mentioned CM software.</p>
-<p>I mostly manage a handful of servers so <code>rr</code> serves my needs just fine.</p>
-<hr>
-<h3 id="invocation">Invocation</h3>
-<pre><code>rr avocado sysctl:apply --quiet --names
-   ^       ^      ^       ^
-   host namespace script  arguments
-</code></pre>
-<p>Set the host to <code>local</code> or <code>localhost</code> for localhost invocations. Mainly used
-for &ldquo;pull&rdquo; operations.</p>
+<p>Huge shell scripts can be unwieldy. <code>rr</code> will help you manage your scripts.</p>
 <hr>
 <h3 id="multicall-modes">Multicall Modes</h3>
 <p>You can use a symlink to activate the modes.</p>
@@ -322,7 +313,7 @@ Thu, 22 Jul 2021 18:13:32 +0800 Total run time: 101.648007ms. All OK.
     
 <footer id="footer" class="mt-auto text-center text-muted">
   <div class="container">
-    (c)2021
+    MIT License 2021
   </div>
 </footer>
 

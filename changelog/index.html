@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.87.0" />
   
-  <meta name="description" content="Tags">
+  <meta name="description" content="0.14.0  Custom ssh_config (rr.hosts) app=rr added to JSON log  0.13.0  security issue: omit environment variables from logged code  0.12.0  Support sudo invocations Interpreter can be set in shell file STDOUT and STDERR encoded to base64 in JSON log STDOUT and STDDER also logged as DEBUG entries even without errors Only take the first line from the task file A breaking change; exported environment variables must prefix rr__ Code of script logged along with DEBUG entries  0.">
   <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
   
   
-  <title>Tags | rr</title>
+  <title> | rr</title>
   <style>
 .container {
   max-width: 1024px;
@@ -171,8 +171,34 @@ audio {
       <main id="main">
         
 
-<h1>Tags</h1>
-
+<h1></h1>
+<h4 id="0140">0.14.0</h4>
+<ul>
+<li>Custom ssh_config (rr.hosts)</li>
+<li><code>app=rr</code> added to JSON log</li>
+</ul>
+<h4 id="0130">0.13.0</h4>
+<ul>
+<li>security issue: omit environment variables from logged code</li>
+</ul>
+<h4 id="0120">0.12.0</h4>
+<ul>
+<li>Support <code>sudo</code> invocations</li>
+<li>Interpreter can be set in <code>shell</code> file</li>
+<li>STDOUT and STDERR encoded to base64 in JSON log</li>
+<li>STDOUT and STDDER also logged as DEBUG entries even without errors</li>
+<li>Only take the first line from the <code>task</code> file</li>
+<li>A breaking change; exported environment variables must prefix <code>rr__</code></li>
+<li>Code of script logged along with DEBUG entries</li>
+</ul>
+<h4 id="0110">0.11.0</h4>
+<ul>
+<li>Script start marked as Info</li>
+<li>Start and Finish now properly marked in json log</li>
+<li>Contents of <code>task</code> file used for audit trail</li>
+<li>Added Bash completion script</li>
+<li>Replaced ULID with random hexadecimal string</li>
+</ul>
 
 
 

@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.87.0" />
   
-  <meta name="description" content="&gt; Table of Contents &lt;  Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH   Local invocation of scripts Run locally, the default without a hostname or container PID specified.  Requires tar(1) for .files  The following are equivalent:
-rr namespace:script rr localhost namespace:script Run scripts inside a local container NOTE: Linux only Run on a local container’s PID via nsenter(1).">
+  <meta name="description" content="&gt; Table of Contents &lt;  Tutorial Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH   Tutorial In the Git source tree, the TUTORIAL directory contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named avocado
+First you have to setup SSH public-key authentication for a remote host with hostname avocado. It’s important that the hostnames match.">
   <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
   
   
@@ -107,19 +107,6 @@ audio {
       
       
       
-        
-      
-    
-    
-    <a class="nav-link " href="/tutorial/"><i data-feather="play"></i> Tutorial</a>
-  
-    
-    
-      
-      
-      
-      
-      
        
         
         
@@ -165,6 +152,19 @@ audio {
       
     
     
+    <a class="nav-link " href="/changelog"><i data-feather="play"></i> Changelog</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
     <a class="nav-link " href="https://github.com/tongson/rr"><i data-feather="github"></i> Source</a>
   
   </nav>
@@ -178,11 +178,33 @@ audio {
 <hr>
 <h3 id="-table-of-contents-">&gt; Table of Contents &lt;</h3>
 <ul>
+<li><a href="#tutorial">Tutorial</a></li>
 <li><a href="#local-invocation-of-scripts">Local invocation of scripts</a></li>
 <li><a href="#run-scripts-inside-a-local-container">Run scripts inside a local container</a></li>
 <li><a href="#run-scripts-remote-via-ssh">Run scripts remote via SSH</a></li>
 </ul>
 <hr>
+<h5 id="tutorial">Tutorial</h5>
+<p>In the Git source tree, the <strong>TUTORIAL</strong> directory contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named <em>avocado</em></p>
+<p>First you have to setup SSH public-key authentication for a remote host with hostname <code>avocado</code>. It&rsquo;s important that the hostnames match.</p>
+<p>Once that is done, you can proceed with the example:</p>
+<pre><code>cd TUTORIAL
+rr avocado sysctl:apply
+</code></pre>
+<h6 id="steps-that-rr-performs">Steps that <code>rr</code> performs</h6>
+<ol>
+<li>Copy via sftp <code>.files-avocado/</code> to <code>avocado:/</code></li>
+<li>Generates the script:</li>
+</ol>
+<pre><code>#!/bin/sh
+unset IFS
+set -efu
+PATH=/bin:/sbin:/usr/bin:/usr/sbin
+LC_ALL=C
+sysctl --system
+</code></pre><ol start="3">
+<li>Runs the script on host avocado via SSH.</li>
+</ol>
 <h5 id="local-invocation-of-scripts">Local invocation of scripts</h5>
 <p>Run locally, the default without a hostname or container PID specified.
 <br/>
@@ -208,7 +230,7 @@ Run on a local container&rsquo;s PID via <code>nsenter(1)</code>. Requires <code
     
 <footer id="footer" class="mt-auto text-center text-muted">
   <div class="container">
-    (c)2021
+    MIT License 2021
   </div>
 </footer>
 
