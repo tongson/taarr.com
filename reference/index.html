@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.87.0" />
   
-  <meta name="description" content="Table of Contents  Why Invocation Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
-CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing &#43; drist. Cons mostly outweight the pros.">
+  <meta name="description" content="&gt; Table of Contents &lt;  Why Invocation Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
+CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing &#43; drist.">
   <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
   
   
-  <title> | rr</title>
+  <title>Reference | rr</title>
   <style>
 .container {
   max-width: 1024px;
@@ -146,11 +146,13 @@ audio {
       
       
       
+       
+        
         
       
     
     
-    <a class="nav-link " href="/reference/"><i data-feather="book"></i> Reference</a>
+    <a class="nav-link nav-link-active" href="/reference/"><i data-feather="book"></i> Reference</a>
   
   </nav>
 </div>
@@ -159,8 +161,9 @@ audio {
       <main id="main">
         
 
-<h1></h1>
-<h1 id="table-of-contents">Table of Contents</h1>
+<h1>Reference</h1>
+<hr>
+<h3 id="-table-of-contents-">&gt; Table of Contents &lt;</h3>
 <ul>
 <li><a href="#why">Why</a></li>
 <li><a href="#invocation">Invocation</a></li>
@@ -196,7 +199,9 @@ for &ldquo;pull&rdquo; operations.</p>
 <hr>
 <h3 id="multicall-modes">Multicall Modes</h3>
 <p>You can use a symlink to activate the modes.</p>
-<h4 id="console">Console</h4>
+<p>Example for sudo mode:</p>
+<pre><code>ln -s rr rrs
+</code></pre><h4 id="console">Console</h4>
 <p>Verbose mode.</p>
 <p>When called as <code>rrv</code> <em>or</em> a console is detected it runs in verbose mode.</p>
 <pre><code>Thu, 22 Jul 2021 14:01:43 +0800 rr 0.10.0 &quot;Kilowatt Triceps&quot;

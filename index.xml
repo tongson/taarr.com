@@ -7,23 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://taarr.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
+      <title>Examples</title>
       <link>https://taarr.com/examples/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://taarr.com/examples/</guid>
-      <description>Table of Contents  Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH   Local invocation of scripts Run locally, the default without a hostname or container PID specified.  Requires tar(1) for .files  The following are equivalent:
-rr namespace:script rr localhost namespace:script Run scripts inside a local container NOTE: Linux only Run on a local container&amp;rsquo;s PID via nsenter(1). Requires rsync(1) for .</description>
+      <description>&amp;gt; Table of Contents &amp;lt;  Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH   Local invocation of scripts Run locally, the default without a hostname or container PID specified.  Requires tar(1) for .files  The following are equivalent:
+rr namespace:script rr localhost namespace:script Run scripts inside a local container NOTE: Linux only Run on a local container&amp;rsquo;s PID via nsenter(1).</description>
     </item>
     
     <item>
-      <title></title>
+      <title>Howto</title>
+      <link>https://taarr.com/howto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://taarr.com/howto/</guid>
+      <description> &amp;gt; Table of Contents &amp;lt;  Parallel Execution   Parallel Execution Shell scripts can execute rr natively.
+#!/bin/sh # Run namespace:script in parallel rr somewhere namespace:script &amp;amp; rr another namespace:script &amp;amp; wait # Next step after above rr remotehost namespace:anotherscript </description>
+    </item>
+    
+    <item>
+      <title>Reference</title>
       <link>https://taarr.com/reference/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://taarr.com/reference/</guid>
-      <description>Table of Contents  Why Invocation Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
-CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing + drist. Cons mostly outweight the pros.</description>
+      <description>&amp;gt; Table of Contents &amp;lt;  Why Invocation Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
+CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing + drist.</description>
     </item>
     
   </channel>

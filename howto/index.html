@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.87.0" />
   
-  <meta name="description" content="&gt; Table of Contents &lt;  Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH   Local invocation of scripts Run locally, the default without a hostname or container PID specified.  Requires tar(1) for .files  The following are equivalent:
-rr namespace:script rr localhost namespace:script Run scripts inside a local container NOTE: Linux only Run on a local container’s PID via nsenter(1).">
+  <meta name="description" content=" &gt; Table of Contents &lt;  Parallel Execution   Parallel Execution Shell scripts can execute rr natively.
+#!/bin/sh # Run namespace:script in parallel rr somewhere namespace:script &amp; rr another namespace:script &amp; wait # Next step after above rr remotehost namespace:anotherscript ">
   <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
   
   
-  <title>Examples | rr</title>
+  <title>Howto | rr</title>
   <style>
 .container {
   max-width: 1024px;
@@ -120,13 +120,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/examples/"><i data-feather="edit"></i> Examples</a>
+    <a class="nav-link " href="/examples/"><i data-feather="edit"></i> Examples</a>
   
     
     
@@ -135,11 +133,13 @@ audio {
       
       
       
+       
+        
         
       
     
     
-    <a class="nav-link " href="/howto/"><i data-feather="code"></i> Howto</a>
+    <a class="nav-link nav-link-active" href="/howto/"><i data-feather="code"></i> Howto</a>
   
     
     
@@ -161,33 +161,24 @@ audio {
       <main id="main">
         
 
-<h1>Examples</h1>
+<h1>Howto</h1>
 <hr>
 <h3 id="-table-of-contents-">&gt; Table of Contents &lt;</h3>
 <ul>
-<li><a href="#local-invocation-of-scripts">Local invocation of scripts</a></li>
-<li><a href="#run-scripts-inside-a-local-container">Run scripts inside a local container</a></li>
-<li><a href="#run-scripts-remote-via-ssh">Run scripts remote via SSH</a></li>
+<li><a href="#parallel-execution">Parallel Execution</a></li>
 </ul>
 <hr>
-<h5 id="local-invocation-of-scripts">Local invocation of scripts</h5>
-<p>Run locally, the default without a hostname or container PID specified.
-<br/>
-Requires <code>tar(1)</code> for <code>.files</code>
-<br/>
-The following are equivalent:</p>
-<pre><code>rr namespace:script
-</code></pre><pre><code>rr localhost namespace:script
-</code></pre><h5 id="run-scripts-inside-a-local-container">Run scripts inside a local container</h5>
-<p>NOTE: Linux only<br/><br/>
-Run on a local container&rsquo;s PID via <code>nsenter(1)</code>. Requires <code>rsync(1)</code> for <code>.files</code>.</p>
-<pre><code>rr 1333 namespace:script
-</code></pre><h5 id="run-scripts-remote-via-ssh">Run scripts remote via SSH</h5>
-<p>Requires OpenSSH 4.7+ for <code>.files</code>.</p>
-<pre><code>rr remotehost namespace:script
-</code></pre><p>If a file named <code>rr.hosts</code> is in the current directory then that is used as the SSH config instead of the default
-<code>~/.ssh/config</code>.</p>
+<h4 id="parallel-execution">Parallel Execution</h4>
+<p>Shell scripts can execute <code>rr</code> natively.</p>
+<pre><code>#!/bin/sh
 
+# Run namespace:script in parallel
+rr somewhere namespace:script &amp;
+rr another namespace:script &amp;
+wait
+# Next step after above
+rr remotehost namespace:anotherscript
+</code></pre>
 
 
       </main>
