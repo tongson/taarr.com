@@ -6,11 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.87.0" />
   
-  <meta name="description" content="Categories">
+  <meta name="description" content="In the Git source tree, the TUTORIAL directory contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named avocado
+First you have to setup SSH public-key authentication for a remote host with hostname avocado. It’s important that the hostnames match.
+Once that is done, you can proceed with the example:
+cd TUTORIAL rr avocado sysctl:apply  Steps that rr performs  Copy via sftp .">
   <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
   
   
-  <title>Categories | rr</title>
+  <title>Tutorial | rr</title>
   <style>
 .container {
   max-width: 1024px;
@@ -106,11 +109,13 @@ audio {
       
       
       
+       
+        
         
       
     
     
-    <a class="nav-link " href="/tutorial/"><i data-feather="play"></i> Tutorial</a>
+    <a class="nav-link nav-link-active" href="/tutorial/"><i data-feather="play"></i> Tutorial</a>
   
     
     
@@ -158,8 +163,27 @@ audio {
       <main id="main">
         
 
-<h1>Categories</h1>
-
+<h1>Tutorial</h1>
+<p>In the Git source tree, the <strong>TUTORIAL</strong> directory contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named <em>avocado</em></p>
+<p>First you have to setup SSH public-key authentication for a remote host with hostname <code>avocado</code>. It&rsquo;s important that the hostnames match.</p>
+<p>Once that is done, you can proceed with the example:</p>
+<pre><code>cd TUTORIAL
+rr avocado sysctl:apply
+</code></pre>
+<h4 id="steps-that-rr-performs">Steps that <code>rr</code> performs</h4>
+<ol>
+<li>Copy via sftp <code>.files-avocado/</code> to <code>avocado:/</code></li>
+<li>Generates the script:</li>
+</ol>
+<pre><code>#!/bin/sh
+unset IFS
+set -efu
+PATH=/bin:/sbin:/usr/bin:/usr/sbin
+LC_ALL=C
+sysctl --system
+</code></pre><ol start="3">
+<li>Runs the script on host avocado via SSH.</li>
+</ol>
 
 
 

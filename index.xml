@@ -36,5 +36,17 @@ rr namespace:script rr localhost namespace:script Run scripts inside a local con
 CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing + drist.</description>
     </item>
     
+    <item>
+      <title>Tutorial</title>
+      <link>https://taarr.com/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://taarr.com/tutorial/</guid>
+      <description>In the Git source tree, the TUTORIAL directory contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named avocado
+First you have to setup SSH public-key authentication for a remote host with hostname avocado. It&amp;rsquo;s important that the hostnames match.
+Once that is done, you can proceed with the example:
+cd TUTORIAL rr avocado sysctl:apply  Steps that rr performs  Copy via sftp .</description>
+    </item>
+    
   </channel>
 </rss>
