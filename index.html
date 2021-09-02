@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.87.0" />
   
-  <meta name="description" content="rr Your shell script multi-tool Automate all the things Static &lt;3MiB executable   Go 1.16&#43; GOBIN=/usr/local/bin go install github.com/tongson/rr@0.13.0  Download
-curl -L https://github.com/tongson/rr/releases/download/0.13.0/rr -o /usr/local/bin/rr   shell script manager and runner inspired by rerun[1], bashing[2], and drist[3]  [1] github.com/rerun/rerun [2] github.com/xsc/bashing [3] bitreich.org/drist   Modes: Local Container (nsenter) Remote (ssh)   Can be used for: Runbooks Launchers Deployment Release Engineering Builds Compiles Testing Configuration Management ">
+  <meta name="description" content="Your shell script multi-tool Automate all the things   Install (&lt;3MiB static executable) Go 1.16&#43;
+GOBIN=/usr/local/bin go install github.com/tongson/rr@0.13.0  Download (Linux amd64/x86_64)
+curl -LO https://github.com/tongson/rr/releases/download/0.13.0/rr   shell script manager and runner inspired by rerun[1], bashing[2], and drist[3]  [1] github.com/rerun/rerun [2] github.com/xsc/bashing [3] bitreich.org/drist   Modes: Local (requires tar) Local container (Linux only, requires nsenter and rsync) Remote (requires OpenSSH)   Can be used for: Runbooks Launchers Deployment Release Engineering Builds Compiles Testing Configuration Management ">
   <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
   
   
@@ -16,7 +17,7 @@ curl -L https://github.com/tongson/rr/releases/download/0.13.0/rr -o /usr/local/
   <title>rr</title>
   <style>
 .container {
-  max-width: 1280px;
+  max-width: 1024px;
 }
 #nav a {
   font-weight: bold;
@@ -113,7 +114,7 @@ audio {
       
     
     
-    <a class="nav-link " href="/tutorials/"><i data-feather="play"></i> Tutorials</a>
+    <a class="nav-link " href="/tutorials/"><i data-feather="play"></i> Tutorial</a>
   
     
     
@@ -163,18 +164,17 @@ audio {
 
 <div id="home-jumbotron" class="jumbotron text-center">
 
-  <h1></h1>
-  <h1 id="rr">rr</h1>
-<h4 id="your-shell-script-multi-tool">Your shell script multi-tool</h4>
-<h4 id="automate-all-the-things">Automate all the things</h4>
-<h4 id="static-3mib-executable">Static &lt;3MiB executable</h4>
+  <h1>rr</h1>
+  <h2 id="your-shell-script-multi-tool">Your shell script multi-tool</h2>
+<h2 id="automate-all-the-things">Automate all the things</h2>
 <br/>
 <br/>
-Go 1.16+
+<h4 id="install-3mib-static-executable">Install (&lt;3MiB static executable)</h4>
+<p>Go 1.16+</p>
 <pre><code>GOBIN=/usr/local/bin go install github.com/tongson/rr@0.13.0
 </code></pre>
-<p>Download</p>
-<pre><code>curl -L https://github.com/tongson/rr/releases/download/0.13.0/rr -o /usr/local/bin/rr
+<p>Download (Linux amd64/x86_64)</p>
+<pre><code>curl -LO https://github.com/tongson/rr/releases/download/0.13.0/rr
 </code></pre>
 <br/>
 shell script manager and runner inspired by rerun[1], bashing[2], and drist[3]
@@ -185,9 +185,9 @@ shell script manager and runner inspired by rerun[1], bashing[2], and drist[3]
 <br/>
 <br/>
 Modes:<br/>
-Local<br/>
-Container (nsenter)<br/>
-Remote (ssh)<br/>
+Local (requires tar)<br/>
+Local container (Linux only, requires nsenter and rsync)<br/>
+Remote (requires OpenSSH)<br/>
 <br/>
 <br/>
 Can be used for:<br/>

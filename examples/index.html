@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.87.0" />
   
-  <meta name="description" content="Test">
+  <meta name="description" content="Table of Contents  Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH   Local invocation of scripts Run locally, the default without a hostname or container PID specified.  Requires tar(1) for .files  The following are equivalent:
+rr namespace:script rr localhost namespace:script Run scripts inside a local container NOTE: Linux only Run on a local container’s PID via nsenter(1). Requires rsync(1) for .">
   <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
   
   
-  <title>t | rr</title>
+  <title> | rr</title>
   <style>
 .container {
-  max-width: 1280px;
+  max-width: 1024px;
 }
 #nav a {
   font-weight: bold;
@@ -110,7 +111,7 @@ audio {
       
     
     
-    <a class="nav-link " href="/tutorials/"><i data-feather="play"></i> Tutorials</a>
+    <a class="nav-link " href="/tutorials/"><i data-feather="play"></i> Tutorial</a>
   
     
     
@@ -158,8 +159,31 @@ audio {
       <main id="main">
         
 
-<h1>t</h1>
-<p>Test</p>
+<h1></h1>
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#local-invocation-of-scripts">Local invocation of scripts</a></li>
+<li><a href="#run-scripts-inside-a-local-container">Run scripts inside a local container</a></li>
+<li><a href="#run-scripts-remote-via-ssh">Run scripts remote via SSH</a></li>
+</ul>
+<hr>
+<h5 id="local-invocation-of-scripts">Local invocation of scripts</h5>
+<p>Run locally, the default without a hostname or container PID specified.
+<br/>
+Requires <code>tar(1)</code> for <code>.files</code>
+<br/>
+The following are equivalent:</p>
+<pre><code>rr namespace:script
+</code></pre><pre><code>rr localhost namespace:script
+</code></pre><h5 id="run-scripts-inside-a-local-container">Run scripts inside a local container</h5>
+<p>NOTE: Linux only<br/><br/>
+Run on a local container&rsquo;s PID via <code>nsenter(1)</code>. Requires <code>rsync(1)</code> for <code>.files</code>.</p>
+<pre><code>rr 1333 namespace:script
+</code></pre><h5 id="run-scripts-remote-via-ssh">Run scripts remote via SSH</h5>
+<p>Requires OpenSSH 4.7+ for <code>.files</code>.</p>
+<pre><code>rr remotehost namespace:script
+</code></pre><p>If a file named <code>rr.hosts</code> is in the current directory then that is used as the SSH config instead of the default
+<code>~/.ssh/config</code>.</p>
 
 
 

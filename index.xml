@@ -7,12 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://taarr.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>t</title>
+      <title></title>
       <link>https://taarr.com/examples/</link>
-      <pubDate>Wed, 01 Sep 2021 09:59:31 +0800</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://taarr.com/examples/</guid>
-      <description>Test</description>
+      <description>Table of Contents  Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH   Local invocation of scripts Run locally, the default without a hostname or container PID specified.  Requires tar(1) for .files  The following are equivalent:
+rr namespace:script rr localhost namespace:script Run scripts inside a local container NOTE: Linux only Run on a local container&amp;rsquo;s PID via nsenter(1). Requires rsync(1) for .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://taarr.com/reference/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://taarr.com/reference/</guid>
+      <description>Table of Contents  Why Invocation Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
+CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing + drist. Cons mostly outweight the pros.</description>
     </item>
     
   </channel>

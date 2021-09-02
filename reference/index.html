@@ -1,0 +1,349 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.87.0" />
+  
+  <meta name="description" content="Table of Contents  Why Invocation Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
+CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing &#43; drist. Cons mostly outweight the pros.">
+  <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
+  
+  
+  <title> | rr</title>
+  <style>
+.container {
+  max-width: 1024px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tutorials/"><i data-feather="play"></i> Tutorial</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/examples/"><i data-feather="edit"></i> Examples</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/howto/"><i data-feather="code"></i> Howto</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/reference/"><i data-feather="book"></i> Reference</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1></h1>
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#why">Why</a></li>
+<li><a href="#invocation">Invocation</a></li>
+<li><a href="#multicall-modes">Multicall Modes</a>
+<ul>
+<li><a href="#console">Console</a></li>
+<li><a href="#silent">Silent</a></li>
+<li><a href="#dump">Dump</a></li>
+<li><a href="#sudo">Sudo</a></li>
+</ul>
+</li>
+<li><a href="#audit-trail">Audit Trail</a></li>
+<li><a href="#readmes">Readmes</a></li>
+<li><a href="#environment-variables">Environment Variables</a></li>
+<li><a href="#hierarchy">Hierarchy</a></li>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#decision-record">Decision Record</a></li>
+</ul>
+<hr>
+<h3 id="why">Why</h3>
+<p>I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.</p>
+<p>CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing + drist. Cons mostly outweight the pros. Slow and complicated are the common complaints.</p>
+<p>According to the Lindy effect; shell scripts, openssh and tar will outlive these mentioned CM software.</p>
+<p>I mostly manage a handful of servers so <code>rr</code> serves my needs just fine.</p>
+<hr>
+<h3 id="invocation">Invocation</h3>
+<pre><code>rr avocado sysctl:apply --quiet --names
+   ^       ^      ^       ^
+   host namespace script  arguments
+</code></pre>
+<p>Set the host to <code>local</code> or <code>localhost</code> for localhost invocations. Mainly used
+for &ldquo;pull&rdquo; operations.</p>
+<hr>
+<h3 id="multicall-modes">Multicall Modes</h3>
+<p>You can use a symlink to activate the modes.</p>
+<h4 id="console">Console</h4>
+<p>Verbose mode.</p>
+<p>When called as <code>rrv</code> <em>or</em> a console is detected it runs in verbose mode.</p>
+<pre><code>Thu, 22 Jul 2021 14:01:43 +0800 rr 0.10.0 &quot;Kilowatt Triceps&quot;
+Thu, 22 Jul 2021 14:01:43 +0800 Running tmp:test via local...
+Thu, 22 Jul 2021 14:01:43 +0800 Running test...
+Thu, 22 Jul 2021 14:01:53 +0800 Done. Output:
+ local ┌─ stdout
+ local │
+ local │ 3
+ local │ 
+ local └─
+Thu, 22 Jul 2021 14:01:53 +0800 Total run time: 10.059915355s. All OK.
+</code></pre><p>In this mode it also logs to the file <code>rr.json</code> in the current working directory.</p>
+<p>NOTE: logs STDOUT and STDERR as a debug entry when no errors are detected</p>
+<p>TIP: Example command line to extract STDOUT from the log file</p>
+<pre><code>grep 5DB2F900F1F1AF2B rr.json | grep stdout | cut -f12 -d\&quot; | base64 -d
+</code></pre><h4 id="silent">Silent</h4>
+<p>When called as <code>rr</code> <em>and</em> a console is not detected it only shows errors as structured JSON.</p>
+<pre><code>{&quot;level&quot;:&quot;error&quot;,&quot;stdout&quot;:&quot;ss\n&quot;,&quot;stderr&quot;:&quot;ee\n&quot;,&quot;time&quot;:&quot;2021-07-20T20:16:04+08:00&quot;,&quot;message&quot;:&quot;Output&quot;}
+{&quot;level&quot;:&quot;error&quot;,&quot;elapsed&quot;:&quot;1.798478ms&quot;,&quot;time&quot;:&quot;2021-07-20T20:16:04+08:00&quot;,&quot;message&quot;:&quot;Something went wrong.&quot;}
+</code></pre><h4 id="dump">Dump</h4>
+<p>When called as <code>rrd</code>, dumps the generated script. This is mainly for debugging and allows running scripts
+generated from a managed namespace without the <code>rr</code> executable.</p>
+<h4 id="sudo">Sudo</h4>
+<p>When called as <code>rrs</code>, asks for a <code>sudo</code> password for the remote user. Similar to the ansible options <code>--become -K</code>.
+Also turns on console mode since a TTY is expected anyway.</p>
+<hr>
+<h3 id="audit-trail">Audit Trail</h3>
+<p>The contents of the <code>task</code> file inside <code>namespace/script</code> will be logged as the <code>message</code> field. Without the <code>task</code> file
+the default is <code>UNDEFINED</code>.</p>
+<pre><code>{&quot;level&quot;:&quot;info&quot;,&quot;id&quot;:&quot;01FB8AKE5H64RK4C9G6WS30CSQ&quot;,&quot;namespace&quot;:&quot;tmp&quot;,&quot;script&quot;:&quot;fail&quot;,&quot;target&quot;:&quot;local&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:21+08:00&quot;,&quot;message&quot;:&quot;testing this\n&quot;}
+{&quot;level&quot;:&quot;debug&quot;,&quot;id&quot;:&quot;01FB8AKE5H64RK4C9G6WS30CSQ&quot;,&quot;script&quot;:&quot;fail&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:21+08:00&quot;,&quot;message&quot;:&quot;running&quot;}
+{&quot;level&quot;:&quot;error&quot;,&quot;id&quot;:&quot;01FB8AKE5H64RK4C9G6WS30CSQ&quot;,&quot;error&quot;:&quot;exit status 255&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:21+08:00&quot;,&quot;message&quot;:&quot;testing this\n&quot;}
+{&quot;level&quot;:&quot;debug&quot;,&quot;id&quot;:&quot;01FB8AKE5H64RK4C9G6WS30CSQ&quot;,&quot;elapsed&quot;:&quot;101.687784ms&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:21+08:00&quot;,&quot;message&quot;:&quot;failed&quot;}
+{&quot;level&quot;:&quot;info&quot;,&quot;id&quot;:&quot;01FB8AMA1F74SK4CSP64RK8DSM&quot;,&quot;namespace&quot;:&quot;tmp&quot;,&quot;script&quot;:&quot;ns&quot;,&quot;target&quot;:&quot;local&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:50+08:00&quot;,&quot;message&quot;:&quot;UNDEFINED&quot;}
+{&quot;level&quot;:&quot;debug&quot;,&quot;id&quot;:&quot;01FB8AMA1F74SK4CSP64RK8DSM&quot;,&quot;directory&quot;:&quot;tmp/ns/.files&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:50+08:00&quot;,&quot;message&quot;:&quot;copying&quot;}
+{&quot;level&quot;:&quot;info&quot;,&quot;id&quot;:&quot;01FB8AMA1F74SK4CSP64RK8DSM&quot;,&quot;result&quot;:&quot;success&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:50+08:00&quot;,&quot;message&quot;:&quot;copy&quot;}
+{&quot;level&quot;:&quot;debug&quot;,&quot;id&quot;:&quot;01FB8AMA1F74SK4CSP64RK8DSM&quot;,&quot;script&quot;:&quot;ns&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:50+08:00&quot;,&quot;message&quot;:&quot;running&quot;}
+{&quot;level&quot;:&quot;info&quot;,&quot;id&quot;:&quot;01FB8AMA1F74SK4CSP64RK8DSM&quot;,&quot;result&quot;:&quot;success&quot;,&quot;time&quot;:&quot;2021-07-23T08:01:00+08:00&quot;,&quot;message&quot;:&quot;UNDEFINED&quot;}
+{&quot;level&quot;:&quot;debug&quot;,&quot;id&quot;:&quot;01FB8AMA1F74SK4CSP64RK8DSM&quot;,&quot;elapsed&quot;:&quot;10.180211517s&quot;,&quot;time&quot;:&quot;2021-07-23T08:01:00+08:00&quot;,&quot;message&quot;:&quot;success&quot;}
+</code></pre><hr>
+<h3 id="readmes">READMEs</h3>
+<p>Any case insensitive file named <code>readme*</code> in the namespace and script directories can be shown by invoking <code>rr</code> by the
+following ways:</p>
+<p>Prints <code>namespace/readme*</code></p>
+<pre><code>rr namespace
+rr namespace/
+</code></pre><p>Prints <code>namespace/script/readme*</code></p>
+<pre><code>rr namespace/script
+rr namespace/script/
+</code></pre><hr>
+<h3 id="environment-variables">Environment Variables</h3>
+<p>Any environment variable prefixed with <code>rr__</code> are passed to the script.</p>
+<p>For example, the <code>rr__USERNAME=test</code> environment variable is passed to the script as <code>USERNAME=test</code></p>
+<pre><code>$ cat tmp/env/script
+echo $USERNAME
+
+$ env rrUSERNAME=test rr tmp:env
+Thu, 22 Jul 2021 18:13:32 +0800 rr 0.10.0 &quot;Kilowatt Triceps&quot;
+Thu, 22 Jul 2021 18:13:32 +0800 Running tmp:env via local...
+Thu, 22 Jul 2021 18:13:32 +0800 Running env...
+Thu, 22 Jul 2021 18:13:32 +0800 Done. Output:
+ local ┌─ stdout
+ local │
+ local │ test
+ local │ 
+ local └─
+Thu, 22 Jul 2021 18:13:32 +0800 Total run time: 101.648007ms. All OK.
+</code></pre><hr>
+<h3 id="hierarchy">Hierarchy</h3>
+<pre><code>TOPLEVEL                            &lt;--- Directory of namespaces or a project
+├── rr.hosts                        &lt;--- custom SSH config
+├── .files                          &lt;--- synced to any host
+├── .files-avocado                  &lt;--- synced to the avocado host
+├── .lib                            &lt;--- sourced by all scripts
+└── namespace
+    ├── .files                      &lt;--- synced to any host when namespace:* is called
+    ├── .files-avocado              &lt;--- synced to the avocado host when namespace:* is called
+    ├── .lib                        &lt;--- sourced along with namespace:* scripts
+    ├── readme                      &lt;--- Documentation for namespace
+    └── script directory
+        ├── .files                  &lt;--- synced to any host when namespace:script is called
+        ├── .files-avocado          &lt;--- synced to the avocado host when namespace:script is called
+        ├── .lib                    &lt;--- sourced along with namespace:script scripts
+        ├── readme                  &lt;--- Documentation for script
+        ├── task                    &lt;--- Companion to readme, used to log current task
+        └── script                  &lt;--- the actual shell script
+</code></pre>
+<hr>
+<h3 id="notes">Notes</h3>
+<p>Tested on Linux and macOS.</p>
+<p>Remote host only requires OpenSSH server.</p>
+<p>Requires OpenSSH 4.7+ for sftp recursive file transfers. If you can&rsquo;t use 4.7+, a workaround is to use heredocs.</p>
+<p>Scripts should reference <code>$@</code> if it wants to use arguments passed.</p>
+<hr>
+<h3 id="decision-record">Decision Record</h3>
+<ul>
+<li>Environment variables are not logged. They may contain secrets.</li>
+</ul>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    (c)2021
+  </div>
+</footer>
+
+    <script src="https://taarr.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>
