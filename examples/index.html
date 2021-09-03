@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.87.0" />
   
-  <meta name="description" content="&gt; Table of Contents &lt;  Tutorial Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH   Tutorial In the Git source tree, the TUTORIAL directory contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named avocado
-First you have to setup SSH public-key authentication for a remote host with hostname avocado. It’s important that the hostnames match.">
+  <meta name="description" content="&gt;Table of Contents&lt;  Tutorial Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH Install podman to remote Ubuntu 20.04 host   Tutorial In the Git source tree, the TUTORIAL directory contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named avocado
+First you have to setup SSH public-key authentication for a remote host with hostname avocado.">
   <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
   
   
@@ -176,12 +176,13 @@ audio {
 
 <h1>Examples</h1>
 <hr>
-<h3 id="-table-of-contents-">&gt; Table of Contents &lt;</h3>
+<h3 id="table-of-contents">&gt;Table of Contents&lt;</h3>
 <ul>
 <li><a href="#tutorial">Tutorial</a></li>
 <li><a href="#local-invocation-of-scripts">Local invocation of scripts</a></li>
 <li><a href="#run-scripts-inside-a-local-container">Run scripts inside a local container</a></li>
 <li><a href="#run-scripts-remote-via-ssh">Run scripts remote via SSH</a></li>
+<li><a href="#install-podman-to-remote-ubuntu-2004-host">Install podman to remote Ubuntu 20.04 host</a></li>
 </ul>
 <hr>
 <h5 id="tutorial">Tutorial</h5>
@@ -205,6 +206,7 @@ sysctl --system
 </code></pre><ol start="3">
 <li>Runs the script on host avocado via SSH.</li>
 </ol>
+<hr>
 <h5 id="local-invocation-of-scripts">Local invocation of scripts</h5>
 <p>Run locally, the default without a hostname or container PID specified.
 <br/>
@@ -213,15 +215,36 @@ Requires <code>tar(1)</code> for <code>.files</code>
 The following are equivalent:</p>
 <pre><code>rr namespace:script
 </code></pre><pre><code>rr localhost namespace:script
-</code></pre><h5 id="run-scripts-inside-a-local-container">Run scripts inside a local container</h5>
+</code></pre><hr>
+<h5 id="run-scripts-inside-a-local-container">Run scripts inside a local container</h5>
 <p>NOTE: Linux only<br/><br/>
 Run on a local container&rsquo;s PID via <code>nsenter(1)</code>. Requires <code>tar(1)</code> for <code>.files</code>.</p>
 <pre><code>rr 1333 namespace:script
-</code></pre><h5 id="run-scripts-remote-via-ssh">Run scripts remote via SSH</h5>
+</code></pre><hr>
+<h5 id="run-scripts-remote-via-ssh">Run scripts remote via SSH</h5>
 <p>Requires OpenSSH 4.7+ for <code>.files</code>.</p>
 <pre><code>rr remotehost namespace:script
 </code></pre><p>If a file named <code>rr.hosts</code> is in the current directory then that is used as the SSH config instead of the default
 <code>~/.ssh/config</code>.</p>
+<hr>
+<h5 id="install-podman-to-remote-ubuntu-2004-host">Install podman to remote Ubuntu 20.04 host</h5>
+<pre><code>$ mkdir -p examples/install-podman
+$ cat &gt; examples/install-podman/script &lt;&lt;-'EXAMPLE'
+. /etc/os-release
+echo &quot;deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /&quot; | tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+curl -L &quot;https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key&quot; | apt-key add -
+apt-get update
+apt-get -y upgrade
+apt-get -y install podman
+EXAMPLE
+$ cat rr.hosts
+Host remotemost
+Hostname 203.0.113.1
+User root
+$ rr remotehost example:install-podman
+...
+...
+</code></pre><hr>
 
 
 

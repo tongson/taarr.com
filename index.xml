@@ -21,8 +21,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://taarr.com/examples/</guid>
-      <description>&amp;gt; Table of Contents &amp;lt;  Tutorial Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH   Tutorial In the Git source tree, the TUTORIAL directory contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named avocado
-First you have to setup SSH public-key authentication for a remote host with hostname avocado. It&amp;rsquo;s important that the hostnames match.</description>
+      <description>&amp;gt;Table of Contents&amp;lt;  Tutorial Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH Install podman to remote Ubuntu 20.04 host   Tutorial In the Git source tree, the TUTORIAL directory contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named avocado
+First you have to setup SSH public-key authentication for a remote host with hostname avocado.</description>
     </item>
     
     <item>
@@ -31,7 +31,7 @@ First you have to setup SSH public-key authentication for a remote host with hos
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://taarr.com/howto/</guid>
-      <description> &amp;gt; Table of Contents &amp;lt;  Parallel Execution   Parallel Execution Shell scripts can execute rr natively.
+      <description> &amp;gt;Table of Contents&amp;lt;  Parallel Execution   Parallel Execution Shell scripts can execute rr natively.
 #!/bin/sh # Run namespace:script in parallel rr somewhere namespace:script &amp;amp; rr another namespace:script &amp;amp; wait # Next step after above rr remotehost namespace:anotherscript </description>
     </item>
     
@@ -41,7 +41,7 @@ First you have to setup SSH public-key authentication for a remote host with hos
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://taarr.com/reference/</guid>
-      <description>&amp;gt; Table of Contents &amp;lt;  Why Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
+      <description>&amp;gt;Table of Contents&amp;lt;  Why Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
 CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing + drist. Cons mostly outweight the pros.</description>
     </item>
     
