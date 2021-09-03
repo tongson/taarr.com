@@ -193,7 +193,7 @@ rr avocado sysctl:apply
 </code></pre>
 <h6 id="steps-that-rr-performs">Steps that <code>rr</code> performs</h6>
 <ol>
-<li>Copy via sftp <code>.files-avocado/</code> to <code>avocado:/</code></li>
+<li>Copies <code>.files-avocado/</code> to <code>avocado:/</code></li>
 <li>Generates the script:</li>
 </ol>
 <pre><code>#!/bin/sh
@@ -215,7 +215,7 @@ The following are equivalent:</p>
 </code></pre><pre><code>rr localhost namespace:script
 </code></pre><h5 id="run-scripts-inside-a-local-container">Run scripts inside a local container</h5>
 <p>NOTE: Linux only<br/><br/>
-Run on a local container&rsquo;s PID via <code>nsenter(1)</code>. Requires <code>rsync(1)</code> for <code>.files</code>.</p>
+Run on a local container&rsquo;s PID via <code>nsenter(1)</code>. Requires <code>tar(1)</code> for <code>.files</code>.</p>
 <pre><code>rr 1333 namespace:script
 </code></pre><h5 id="run-scripts-remote-via-ssh">Run scripts remote via SSH</h5>
 <p>Requires OpenSSH 4.7+ for <code>.files</code>.</p>
