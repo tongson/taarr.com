@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.87.0" />
   
-  <meta name="description" content="0.14.0  Custom ssh_config (rr.hosts) app=rr added to JSON log  0.13.0  security issue: omit environment variables from logged code  0.12.0  Support sudo invocations Interpreter can be set in shell file STDOUT and STDERR encoded to base64 in JSON log STDOUT and STDDER also logged as DEBUG entries even without errors Only take the first line from the task file A breaking change; exported environment variables must prefix rr__ Code of script logged along with DEBUG entries  0.">
+  <meta name="description" content="0.15.0  Change from sftp to tar for ssh copies Support ssh copying with sudo passwords Also replace rsync with tar for container runs  0.14.0  Custom ssh_config (rr.hosts) app=rr added to JSON log  0.13.0  security issue: omit environment variables from logged code  0.12.0  Support sudo invocations Interpreter can be set in shell file STDOUT and STDERR encoded to base64 in JSON log STDOUT and STDDER also logged as DEBUG entries even without errors Only take the first line from the task file A breaking change; exported environment variables must prefix rr__ Code of script logged along with DEBUG entries  0.">
   <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
   
   
@@ -172,6 +172,12 @@ audio {
         
 
 <h1></h1>
+<h4 id="0150">0.15.0</h4>
+<ul>
+<li>Change from sftp to tar for ssh copies</li>
+<li>Support ssh copying with sudo passwords</li>
+<li>Also replace rsync with tar for container runs</li>
+</ul>
 <h4 id="0140">0.14.0</h4>
 <ul>
 <li>Custom ssh_config (rr.hosts)</li>
