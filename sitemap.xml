@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://taarr.com/</loc>
+    <priority>0</priority>
+  </url><url>
     <loc>https://taarr.com/changelog/</loc>
     <priority>0</priority>
   </url><url>
@@ -12,8 +15,6 @@
     <loc>https://taarr.com/howto/</loc>
   </url><url>
     <loc>https://taarr.com/reference/</loc>
-  </url><url>
-    <loc>https://taarr.com/</loc>
   </url><url>
     <loc>https://taarr.com/tags/</loc>
   </url>
