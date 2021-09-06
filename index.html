@@ -7,11 +7,11 @@
   <meta name="generator" content="Hugo 0.87.0" />
   
   <meta name="description" content="Your shell script multi-tool     Install or Download (&lt;3MiB static executable) Go 1.16&#43;
-GOBIN=/usr/local/bin go install github.com/tongson/rr@0.15.0  Download for Linux amd64/x86_64
-curl -L https://github.com/tongson/rr/releases/download/0.15.0/rr.linux-amd64 -o rr  Download for Linux 32-bit
-curl -L https://github.com/tongson/rr/releases/download/0.15.0/rr.linux-i386 -o rr  Download for macOS Intel
-curl -L https://github.com/tongson/rr/releases/download/0.15.0/rr.macos-intel -o rr  Download for macOS m1 (arm64)
-curl -L https://github.com/tongson/rr/releases/download/0.15.0/rr.macos-m1 -o rr     shell script manager and runner inspired by rerun[1], bashing[2], and drist[3]  [1] github.">
+GOBIN=/usr/local/bin go install github.com/tongson/rr@0.17.0  Download for Linux amd64/x86_64
+curl -L https://github.com/tongson/rr/releases/download/0.17.0/rr.linux-amd64 -o rr  Download for Linux 32-bit
+curl -L https://github.com/tongson/rr/releases/download/0.17.0/rr.linux-i386 -o rr  Download for macOS Intel
+curl -L https://github.com/tongson/rr/releases/download/0.17.0/rr.macos-intel -o rr  Download for macOS m1 (arm64)
+curl -L https://github.com/tongson/rr/releases/download/0.17.0/rr.macos-m1 -o rr     shell script manager and runner inspired by rerun[1], bashing[2], and drist[3]  [1] github.">
   <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
   
   
@@ -190,19 +190,19 @@ audio {
 <br/>
 <h6 id="install-or-download-3mib-static-executable">Install or Download (&lt;3MiB static executable)</h6>
 <p><sub>Go 1.16+</sub></p>
-<pre><code>GOBIN=/usr/local/bin go install github.com/tongson/rr@0.15.0
+<pre><code>GOBIN=/usr/local/bin go install github.com/tongson/rr@0.17.0
 </code></pre>
 <p><sub>Download for Linux amd64/x86_64</sub></p>
-<pre><code>curl -L https://github.com/tongson/rr/releases/download/0.15.0/rr.linux-amd64 -o rr
+<pre><code>curl -L https://github.com/tongson/rr/releases/download/0.17.0/rr.linux-amd64 -o rr
 </code></pre>
 <p><sub>Download for Linux 32-bit</sub></p>
-<pre><code>curl -L https://github.com/tongson/rr/releases/download/0.15.0/rr.linux-i386 -o rr
+<pre><code>curl -L https://github.com/tongson/rr/releases/download/0.17.0/rr.linux-i386 -o rr
 </code></pre>
 <p><sub>Download for macOS Intel</sub></p>
-<pre><code>curl -L https://github.com/tongson/rr/releases/download/0.15.0/rr.macos-intel -o rr
+<pre><code>curl -L https://github.com/tongson/rr/releases/download/0.17.0/rr.macos-intel -o rr
 </code></pre>
 <p><sub>Download for macOS m1 (arm64)</sub></p>
-<pre><code>curl -L https://github.com/tongson/rr/releases/download/0.15.0/rr.macos-m1 -o rr
+<pre><code>curl -L https://github.com/tongson/rr/releases/download/0.17.0/rr.macos-m1 -o rr
 </code></pre>
 <br/>
 <br/>
@@ -216,9 +216,9 @@ shell script manager and runner inspired by rerun[1], bashing[2], and drist[3]
 <br/>
 <br/>
 <h2 id="modes">Modes</h2>
-<p><strong>Local</strong> (requires <code>tar(1)</code>)<br/>
-<strong>Local container</strong> (Linux only, requires <code>nsenter(1)</code> and <code>tar(1)</code>)<br/>
-<strong>Remote</strong> (requires OpenSSH, <code>ssh(1)</code> and <code>tar(1)</code>)<br/>
+<p><strong>Local</strong> (requires GNU <code>tar(1)</code>)<br/>
+<strong>Local container</strong> (Linux only, requires <code>nsenter(1)</code> and GNU <code>tar(1)</code>)<br/>
+<strong>Remote</strong> (requires OpenSSH, <code>ssh(1)</code> and GNU <code>tar(1)</code>)<br/>
 <br/>
 <br/></p>
 <h2 id="for">For</h2>
