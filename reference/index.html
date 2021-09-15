@@ -4,9 +4,9 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.88.0" />
   
-  <meta name="description" content="&gt;Table of Contents&lt;  Why Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
+  <meta name="description" content="&gt;Table of Contents&lt;  Why Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Idempotence Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
 CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing &#43; drist. Cons mostly outweight the pros.">
   <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
   
@@ -190,6 +190,7 @@ audio {
 <li><a href="#audit-trail">Audit Trail</a></li>
 <li><a href="#readmes">Readmes</a></li>
 <li><a href="#environment-variables">Environment Variables</a></li>
+<li><a href="#idempotence">Idempotence</a></li>
 <li><a href="#hierarchy">Hierarchy</a></li>
 <li><a href="#notes">Notes</a></li>
 <li><a href="#decision-record">Decision Record</a></li>
@@ -204,11 +205,11 @@ audio {
 <h3 id="multicall-modes">Multicall Modes</h3>
 <p>You can use a symlink to activate the modes.</p>
 <p>Example for sudo mode:</p>
-<pre><code>ln -s rr rrs
+<pre tabindex="0"><code>ln -s rr rrs
 </code></pre><h4 id="console">Console</h4>
 <p>Verbose mode.</p>
 <p>When called as <code>rrv</code> <em>or</em> a console is detected it runs in verbose mode.</p>
-<pre><code>Thu, 22 Jul 2021 14:01:43 +0800 rr 0.10.0 &quot;Kilowatt Triceps&quot;
+<pre tabindex="0"><code>Thu, 22 Jul 2021 14:01:43 +0800 rr 0.10.0 &quot;Kilowatt Triceps&quot;
 Thu, 22 Jul 2021 14:01:43 +0800 Running tmp:test via local...
 Thu, 22 Jul 2021 14:01:43 +0800 Running test...
 Thu, 22 Jul 2021 14:01:53 +0800 Done. Output:
@@ -221,10 +222,10 @@ Thu, 22 Jul 2021 14:01:53 +0800 Total run time: 10.059915355s. All OK.
 </code></pre><p>In this mode it also logs to the file <code>rr.json</code> in the current working directory.</p>
 <p>NOTE: logs STDOUT and STDERR as a debug entry when no errors are detected</p>
 <p>TIP: Example command line to extract STDOUT from the log file</p>
-<pre><code>grep 5DB2F900F1F1AF2B rr.json | grep stdout | cut -f12 -d\&quot; | base64 -d
+<pre tabindex="0"><code>grep 5DB2F900F1F1AF2B rr.json | grep stdout | cut -f12 -d\&quot; | base64 -d
 </code></pre><h4 id="silent">Silent</h4>
 <p>When called as <code>rr</code> <em>and</em> a console is not detected it only shows errors as structured JSON.</p>
-<pre><code>{&quot;level&quot;:&quot;error&quot;,&quot;stdout&quot;:&quot;ss\n&quot;,&quot;stderr&quot;:&quot;ee\n&quot;,&quot;time&quot;:&quot;2021-07-20T20:16:04+08:00&quot;,&quot;message&quot;:&quot;Output&quot;}
+<pre tabindex="0"><code>{&quot;level&quot;:&quot;error&quot;,&quot;stdout&quot;:&quot;ss\n&quot;,&quot;stderr&quot;:&quot;ee\n&quot;,&quot;time&quot;:&quot;2021-07-20T20:16:04+08:00&quot;,&quot;message&quot;:&quot;Output&quot;}
 {&quot;level&quot;:&quot;error&quot;,&quot;elapsed&quot;:&quot;1.798478ms&quot;,&quot;time&quot;:&quot;2021-07-20T20:16:04+08:00&quot;,&quot;message&quot;:&quot;Something went wrong.&quot;}
 </code></pre><h4 id="dump">Dump</h4>
 <p>When called as <code>rrd</code>, dumps the generated script. This is mainly for debugging and allows running scripts
@@ -236,7 +237,7 @@ Also turns on console mode since a TTY is expected anyway.</p>
 <h3 id="audit-trail">Audit Trail</h3>
 <p>The contents of the <code>task</code> file inside <code>namespace/script</code> will be logged as the <code>message</code> field. Without the <code>task</code> file
 the default is <code>UNDEFINED</code>.</p>
-<pre><code>{&quot;level&quot;:&quot;info&quot;,&quot;id&quot;:&quot;01FB8AKE5H64RK4C9G6WS30CSQ&quot;,&quot;namespace&quot;:&quot;tmp&quot;,&quot;script&quot;:&quot;fail&quot;,&quot;target&quot;:&quot;local&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:21+08:00&quot;,&quot;message&quot;:&quot;testing this\n&quot;}
+<pre tabindex="0"><code>{&quot;level&quot;:&quot;info&quot;,&quot;id&quot;:&quot;01FB8AKE5H64RK4C9G6WS30CSQ&quot;,&quot;namespace&quot;:&quot;tmp&quot;,&quot;script&quot;:&quot;fail&quot;,&quot;target&quot;:&quot;local&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:21+08:00&quot;,&quot;message&quot;:&quot;testing this\n&quot;}
 {&quot;level&quot;:&quot;debug&quot;,&quot;id&quot;:&quot;01FB8AKE5H64RK4C9G6WS30CSQ&quot;,&quot;script&quot;:&quot;fail&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:21+08:00&quot;,&quot;message&quot;:&quot;running&quot;}
 {&quot;level&quot;:&quot;error&quot;,&quot;id&quot;:&quot;01FB8AKE5H64RK4C9G6WS30CSQ&quot;,&quot;error&quot;:&quot;exit status 255&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:21+08:00&quot;,&quot;message&quot;:&quot;testing this\n&quot;}
 {&quot;level&quot;:&quot;debug&quot;,&quot;id&quot;:&quot;01FB8AKE5H64RK4C9G6WS30CSQ&quot;,&quot;elapsed&quot;:&quot;101.687784ms&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:21+08:00&quot;,&quot;message&quot;:&quot;failed&quot;}
@@ -251,19 +252,19 @@ the default is <code>UNDEFINED</code>.</p>
 <p>Any case insensitive file named <code>readme*</code> in the namespace and script directories can be shown by invoking <code>rr</code> by the
 following ways:</p>
 <p>Prints <code>namespace/readme*</code></p>
-<pre><code>rr namespace
+<pre tabindex="0"><code>rr namespace
 rr namespace/
 </code></pre><p>Prints <code>namespace/script/readme*</code></p>
-<pre><code>rr namespace/script
+<pre tabindex="0"><code>rr namespace/script
 rr namespace/script/
 </code></pre><hr>
 <h3 id="environment-variables">Environment Variables</h3>
 <p>Any environment variable prefixed with <code>rr__</code> are passed to the script.</p>
 <p>For example, the <code>rr__USERNAME=test</code> environment variable is passed to the script as <code>USERNAME=test</code></p>
-<pre><code>$ cat tmp/env/script
+<pre tabindex="0"><code>$ cat tmp/env/script
 echo $USERNAME
 
-$ env rrUSERNAME=test rr tmp:env
+$ env rr__USERNAME=test rr tmp:env
 Thu, 22 Jul 2021 18:13:32 +0800 rr 0.10.0 &quot;Kilowatt Triceps&quot;
 Thu, 22 Jul 2021 18:13:32 +0800 Running tmp:env via local...
 Thu, 22 Jul 2021 18:13:32 +0800 Running env...
@@ -275,6 +276,76 @@ Thu, 22 Jul 2021 18:13:32 +0800 Done. Output:
  local └─
 Thu, 22 Jul 2021 18:13:32 +0800 Total run time: 101.648007ms. All OK.
 </code></pre><hr>
+<h3 id="idempotence">Idempotence</h3>
+<p>The default behavior of scripts is to indicate two results: no errors(ok) and
+failure(failed). To emulate idempotence your script can print the following string to STDOUT in it&rsquo;s own line:</p>
+<pre tabindex="0"><code>+++++repaired+++++
+</code></pre><p>When writing your script you have to check if an operation is needed to apply a
+change or not. Such a precondition can be written like this:</p>
+<pre tabindex="0"><code>if test -d /some_dir
+then
+  exit 0
+else
+  {
+    mkdir /some_dir
+  } &gt;/dev/null 2&gt;&amp;1 || exit 1
+  printf &quot;+++++repaired+++++\\n&quot;
+  exit 0
+fi
+</code></pre><p>In the JSON log and report mode the result value will say <strong>repaired</strong>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No changes, script exited</td>
+<td>&ndash;&gt;</td>
+<td>ok</td>
+</tr>
+<tr>
+<td>Script succesfully executed changes</td>
+<td>&ndash;&gt;</td>
+<td>repaired</td>
+</tr>
+<tr>
+<td>Repair needed but unable to apply changes</td>
+<td>&ndash;&gt;</td>
+<td>failed</td>
+</tr>
+</tbody>
+</table>
+<br/>
+To borrow terminology from *CFEngine*. There are no changes when the **desired state** is already the expected outcome.
+<br/>
+<br/>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Any state</td>
+<td>&ndash;&gt;</td>
+<td>Desired state</td>
+</tr>
+<tr>
+<td>Desired state</td>
+<td>&ndash;&gt;</td>
+<td>Desired state</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<hr>
 <h3 id="hierarchy">Hierarchy</h3>
 <pre><code>TOPLEVEL                            &lt;--- Directory of namespaces or a project
 ├── rr.hosts                        &lt;--- custom SSH config

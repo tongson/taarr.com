@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.88.0" />
   
   <meta name="description" content="&gt;Table of Contents&lt;  Tutorial Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH Install podman to remote Ubuntu 20.04 host   Tutorial In the Git source tree, the TUTORIAL directory contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named avocado
 First you have to setup SSH public-key authentication for a remote host with hostname avocado.">
@@ -197,7 +197,7 @@ rr avocado sysctl:apply
 <li>Copies <code>.files-avocado/</code> to <code>avocado:/</code></li>
 <li>Generates the script:</li>
 </ol>
-<pre><code>#!/bin/sh
+<pre tabindex="0"><code>#!/bin/sh
 unset IFS
 set -efu
 PATH=/bin:/sbin:/usr/bin:/usr/sbin
@@ -213,22 +213,22 @@ sysctl --system
 Requires <code>tar(1)</code> for <code>.files</code>
 <br/>
 The following are equivalent:</p>
-<pre><code>rr namespace:script
-</code></pre><pre><code>rr localhost namespace:script
+<pre tabindex="0"><code>rr namespace:script
+</code></pre><pre tabindex="0"><code>rr localhost namespace:script
 </code></pre><hr>
 <h5 id="run-scripts-inside-a-local-container">Run scripts inside a local container</h5>
 <p>NOTE: Linux only<br/><br/>
 Run on a local container&rsquo;s PID via <code>nsenter(1)</code>. Requires <code>tar(1)</code> for <code>.files</code>.</p>
-<pre><code>rr 1333 namespace:script
+<pre tabindex="0"><code>rr 1333 namespace:script
 </code></pre><hr>
 <h5 id="run-scripts-remote-via-ssh">Run scripts remote via SSH</h5>
 <p>Requires OpenSSH 4.7+ for <code>.files</code>.</p>
-<pre><code>rr remotehost namespace:script
+<pre tabindex="0"><code>rr remotehost namespace:script
 </code></pre><p>If a file named <code>rr.hosts</code> is in the current directory then that is used as the SSH config instead of the default
 <code>~/.ssh/config</code>.</p>
 <hr>
 <h5 id="install-podman-to-remote-ubuntu-2004-host">Install podman to remote Ubuntu 20.04 host</h5>
-<pre><code>$ mkdir -p examples/install-podman
+<pre tabindex="0"><code>$ mkdir -p examples/install-podman
 $ cat &gt; examples/install-podman/script &lt;&lt;-'EXAMPLE'
 . /etc/os-release
 echo &quot;deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /&quot; | tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
