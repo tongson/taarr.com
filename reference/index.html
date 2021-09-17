@@ -235,19 +235,9 @@ generated from a managed namespace without the <code>rr</code> executable.</p>
 Also turns on console mode since a TTY is expected anyway.</p>
 <hr>
 <h3 id="audit-trail">Audit Trail</h3>
-<p>The contents of the <code>task</code> file inside <code>namespace/script</code> will be logged as the <code>message</code> field. Without the <code>task</code> file
-the default is <code>UNDEFINED</code>.</p>
-<pre tabindex="0"><code>{&quot;level&quot;:&quot;info&quot;,&quot;id&quot;:&quot;01FB8AKE5H64RK4C9G6WS30CSQ&quot;,&quot;namespace&quot;:&quot;tmp&quot;,&quot;script&quot;:&quot;fail&quot;,&quot;target&quot;:&quot;local&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:21+08:00&quot;,&quot;message&quot;:&quot;testing this\n&quot;}
-{&quot;level&quot;:&quot;debug&quot;,&quot;id&quot;:&quot;01FB8AKE5H64RK4C9G6WS30CSQ&quot;,&quot;script&quot;:&quot;fail&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:21+08:00&quot;,&quot;message&quot;:&quot;running&quot;}
-{&quot;level&quot;:&quot;error&quot;,&quot;id&quot;:&quot;01FB8AKE5H64RK4C9G6WS30CSQ&quot;,&quot;error&quot;:&quot;exit status 255&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:21+08:00&quot;,&quot;message&quot;:&quot;testing this\n&quot;}
-{&quot;level&quot;:&quot;debug&quot;,&quot;id&quot;:&quot;01FB8AKE5H64RK4C9G6WS30CSQ&quot;,&quot;elapsed&quot;:&quot;101.687784ms&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:21+08:00&quot;,&quot;message&quot;:&quot;failed&quot;}
-{&quot;level&quot;:&quot;info&quot;,&quot;id&quot;:&quot;01FB8AMA1F74SK4CSP64RK8DSM&quot;,&quot;namespace&quot;:&quot;tmp&quot;,&quot;script&quot;:&quot;ns&quot;,&quot;target&quot;:&quot;local&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:50+08:00&quot;,&quot;message&quot;:&quot;UNDEFINED&quot;}
-{&quot;level&quot;:&quot;debug&quot;,&quot;id&quot;:&quot;01FB8AMA1F74SK4CSP64RK8DSM&quot;,&quot;directory&quot;:&quot;tmp/ns/.files&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:50+08:00&quot;,&quot;message&quot;:&quot;copying&quot;}
-{&quot;level&quot;:&quot;info&quot;,&quot;id&quot;:&quot;01FB8AMA1F74SK4CSP64RK8DSM&quot;,&quot;result&quot;:&quot;success&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:50+08:00&quot;,&quot;message&quot;:&quot;copy&quot;}
-{&quot;level&quot;:&quot;debug&quot;,&quot;id&quot;:&quot;01FB8AMA1F74SK4CSP64RK8DSM&quot;,&quot;script&quot;:&quot;ns&quot;,&quot;time&quot;:&quot;2021-07-23T08:00:50+08:00&quot;,&quot;message&quot;:&quot;running&quot;}
-{&quot;level&quot;:&quot;info&quot;,&quot;id&quot;:&quot;01FB8AMA1F74SK4CSP64RK8DSM&quot;,&quot;result&quot;:&quot;success&quot;,&quot;time&quot;:&quot;2021-07-23T08:01:00+08:00&quot;,&quot;message&quot;:&quot;UNDEFINED&quot;}
-{&quot;level&quot;:&quot;debug&quot;,&quot;id&quot;:&quot;01FB8AMA1F74SK4CSP64RK8DSM&quot;,&quot;elapsed&quot;:&quot;10.180211517s&quot;,&quot;time&quot;:&quot;2021-07-23T08:01:00+08:00&quot;,&quot;message&quot;:&quot;success&quot;}
-</code></pre><hr>
+<p>The contents of the <code>TASK</code> file logged as the <code>message</code> field and task <code>field</code>. Without the <code>task</code> file
+the default is <code>UNDEFINED</code>. It can be overriden by the environment variable <code>TASK</code>.</p>
+<hr>
 <h3 id="readmes">READMEs</h3>
 <p>Any case insensitive file named <code>readme*</code> in the namespace and script directories can be shown by invoking <code>rr</code> by the
 following ways:</p>
