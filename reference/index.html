@@ -237,8 +237,10 @@ Also turns on console mode since a TTY is expected anyway.</p>
 <h3 id="audit-trail">Audit Trail</h3>
 <p>The contents of the <code>TASK</code> file logged as the <code>message</code> field and task <code>field</code>. Without the <code>task</code> file
 the default is <code>UNDEFINED</code>. It can be overriden by the environment variable <code>TASK</code>.</p>
-<p>This can be useful for audit trails or for changelogs.</p>
-<hr>
+<p>This can be useful for audit trails or for changelogs. Before running a script you should fill up <code>TASK</code>.</p>
+<pre tabindex="0"><code>echo 'Upgrade a thing for bugfix' &gt; TASK
+rr program:upgrade
+</code></pre><hr>
 <h3 id="readmes">READMEs</h3>
 <p>Any case insensitive file named <code>readme*</code> in the namespace and script directories can be shown by invoking <code>rr</code> by the
 following ways:</p>
