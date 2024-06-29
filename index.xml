@@ -1,48 +1,771 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rr</title>
-    <link>https://taarr.com/</link>
-    <description>Recent content on rr</description>
+    <title>taarr</title>
+    <link>/</link>
+    <description>taarr</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://taarr.com/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <managingEditor>propolice@gmail.com (Ed)</managingEditor>
+    <webMaster>propolice@gmail.com (Ed)</webMaster>
+    <lastBuildDate>Sat, 29 Jun 2024 00:00:00 +0000</lastBuildDate>
+    
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
-      <title></title>
-      <link>https://taarr.com/changelog/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://taarr.com/changelog/</guid>
-      <description>0.17.0  Local invocation can now use interpreter that take in STDIN  Another interpreter besides a posix shell can&amp;rsquo;t take in arguments or use .files STDIN works with lua(LadyLua), lua(PUC), python, dash, bash, zsh   Overhaul Makefile Fix local tests  0.16.0  Better sudo with password handling Fix various spinner issues Changed spinner: line for copying and dots for runs Add spinner when checking SSH hostname Disable ssh compression Interpreter falls back to &amp;ldquo;sh&amp;rdquo; instead of $SHELL environment variable  0.</description>
+      <title>Changelog</title>
+      <link>/changelog/</link>
+      <pubDate>Sat, 29 Jun 2024 00:00:00 +0000</pubDate>
+      <author>propolice@gmail.com (Ed)</author>
+      <guid>/changelog/</guid>
+      <description>&lt;h4 id=&#34;220&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#220&#34;&gt;
+        ###
+    &lt;/a&gt;
+    2.2.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;p&gt;Craving Detonator&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Log SIGINT&lt;/li&gt;
+&lt;li&gt;Initial support for Windows&lt;/li&gt;
+&lt;li&gt;Update dependencies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;211&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#211&#34;&gt;
+        ###
+    &lt;/a&gt;
+    2.1.1
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;p&gt;Buggy Oven&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use arguments for the LOG field&lt;/li&gt;
+&lt;li&gt;Update dependencies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;210&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#210&#34;&gt;
+        ###
+    &lt;/a&gt;
+    2.1.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;p&gt;Degraded Mastiff&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Colorized &lt;code&gt;rrl&lt;/code&gt; output&lt;/li&gt;
+&lt;li&gt;Changed &lt;code&gt;rrl&lt;/code&gt; headers&lt;/li&gt;
+&lt;li&gt;Changed &lt;code&gt;OP&lt;/code&gt; to &lt;code&gt;LOG&lt;/code&gt; environment variable&lt;/li&gt;
+&lt;li&gt;Removed reading from &lt;code&gt;OP&lt;/code&gt; file feature&lt;/li&gt;
+&lt;li&gt;Added &lt;code&gt;.ssh/config&lt;/code&gt; and &lt;code&gt;ssh_config&lt;/code&gt; as valid hosts files&lt;/li&gt;
+&lt;li&gt;Changed terminal log line color to cyan&lt;/li&gt;
+&lt;li&gt;Various code fixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;201&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#201&#34;&gt;
+        ###
+    &lt;/a&gt;
+    2.0.1
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;p&gt;Hypnotic Antennae&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix output in terminal mode&lt;/li&gt;
+&lt;li&gt;Fix signal handling over SSH&lt;/li&gt;
+&lt;li&gt;Update dependencies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;200&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#200&#34;&gt;
+        ###
+    &lt;/a&gt;
+    2.0.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;p&gt;Groggy Pauper&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Removed some external dependencies to slash around 500KiB from the executable size&lt;/li&gt;
+&lt;li&gt;New extensive testing suite&lt;/li&gt;
+&lt;li&gt;New VARS file for includes and variables&lt;/li&gt;
+&lt;li&gt;Changed SSH config from &lt;code&gt;rr.hosts&lt;/code&gt; to &lt;code&gt;HOSTS&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Changed log filename from &lt;code&gt;rr.json&lt;/code&gt; to &lt;code&gt;LOG&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Changed &lt;code&gt;rrl&lt;/code&gt; mode output headers and log format&lt;/li&gt;
+&lt;li&gt;Changed string for &amp;ldquo;repaired&amp;rdquo; result/status detection to &lt;code&gt;__REPAIRED__&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Changed &lt;code&gt;__REPAIRED__&lt;/code&gt; output detection from STDOUT to STDERR&lt;/li&gt;
+&lt;li&gt;Quicker copying over SSH because of one less SSH connection&lt;/li&gt;
+&lt;li&gt;Quicker remote runs, removed SSH hostname matching&lt;/li&gt;
+&lt;li&gt;More compact &lt;code&gt;rrl&lt;/code&gt; mode output&lt;/li&gt;
+&lt;li&gt;STDOUT now streamed in terminal mode&lt;/li&gt;
+&lt;li&gt;Several code improvements and dependency upgrades&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;104&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#104&#34;&gt;
+        ###
+    &lt;/a&gt;
+    1.0.4
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Update dependencies&lt;/li&gt;
+&lt;li&gt;Free performance improvement&lt;/li&gt;
+&lt;li&gt;Code style&lt;/li&gt;
+&lt;li&gt;Improve &amp;ldquo;make&amp;rdquo; scripts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;103&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#103&#34;&gt;
+        ###
+    &lt;/a&gt;
+    1.0.3
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Update dependencies&lt;/li&gt;
+&lt;li&gt;Remove spinner&lt;/li&gt;
+&lt;li&gt;Use isatty to determine console&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;102&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#102&#34;&gt;
+        ###
+    &lt;/a&gt;
+    1.0.2
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Update dependencies&lt;/li&gt;
+&lt;li&gt;Indicate connections in the output&lt;/li&gt;
+&lt;li&gt;Fix handling of huge log files&lt;/li&gt;
+&lt;li&gt;Better ansi escape sequence for the spinner&lt;/li&gt;
+&lt;li&gt;Fix tests&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;101&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#101&#34;&gt;
+        ###
+    &lt;/a&gt;
+    1.0.1
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Update dependencies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;100&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#100&#34;&gt;
+        ###
+    &lt;/a&gt;
+    1.0.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Add plain mode for reusing output&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;0190&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#0190&#34;&gt;
+        ###
+    &lt;/a&gt;
+    0.19.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Remove script level &lt;code&gt;task&lt;/code&gt; file
+&lt;ul&gt;
+&lt;li&gt;Top-level &lt;code&gt;TASK&lt;/code&gt; file is now the task field in the log&lt;/li&gt;
+&lt;li&gt;Can be overridden by env variable &lt;code&gt;TASK&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Better looking table separator in report mode&lt;/li&gt;
+&lt;li&gt;Shorter start timestamps in report mode&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;0180&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#0180&#34;&gt;
+        ###
+    &lt;/a&gt;
+    0.18.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Added Teleport mode &lt;code&gt;rrt&lt;/code&gt; &amp;amp; &lt;code&gt;rro&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Added report mode &lt;code&gt;rrl&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Idempotence&amp;rdquo; by checking &amp;lsquo;+++++repaired+++++&amp;rsquo; string from STDOUT&lt;/li&gt;
+&lt;li&gt;Log to &lt;code&gt;rr.json&lt;/code&gt; even if not in console mode&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;elapsed&amp;rdquo; to &amp;ldquo;duration&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;ID&amp;rsquo;s are just 8 characters now&lt;/li&gt;
+&lt;li&gt;Duration truncated at seconds&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;0170&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#0170&#34;&gt;
+        ###
+    &lt;/a&gt;
+    0.17.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Local invocation can now use interpreter that take in STDIN
+&lt;ul&gt;
+&lt;li&gt;Another interpreter besides a posix shell can&amp;rsquo;t take in arguments or use &lt;code&gt;.files&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;STDIN works with lua(LadyLua), lua(PUC), python, dash, bash, zsh&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Overhaul Makefile&lt;/li&gt;
+&lt;li&gt;Fix local tests&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;0160&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#0160&#34;&gt;
+        ###
+    &lt;/a&gt;
+    0.16.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Better sudo with password handling&lt;/li&gt;
+&lt;li&gt;Fix various spinner issues&lt;/li&gt;
+&lt;li&gt;Changed spinner: line for copying and dots for runs&lt;/li&gt;
+&lt;li&gt;Add spinner when checking SSH hostname&lt;/li&gt;
+&lt;li&gt;Disable ssh compression&lt;/li&gt;
+&lt;li&gt;Interpreter falls back to &amp;ldquo;sh&amp;rdquo; instead of $SHELL environment variable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;0150&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#0150&#34;&gt;
+        ###
+    &lt;/a&gt;
+    0.15.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Change from sftp to tar for ssh copies&lt;/li&gt;
+&lt;li&gt;Support ssh copying with sudo passwords&lt;/li&gt;
+&lt;li&gt;Also replace rsync with tar for container runs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;0140&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#0140&#34;&gt;
+        ###
+    &lt;/a&gt;
+    0.14.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Custom ssh_config (rr.hosts)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;app=rr&lt;/code&gt; added to JSON log&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;0130&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#0130&#34;&gt;
+        ###
+    &lt;/a&gt;
+    0.13.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;security issue: omit environment variables from logged code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;0120&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#0120&#34;&gt;
+        ###
+    &lt;/a&gt;
+    0.12.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support &lt;code&gt;sudo&lt;/code&gt; invocations&lt;/li&gt;
+&lt;li&gt;Interpreter can be set in &lt;code&gt;shell&lt;/code&gt; file&lt;/li&gt;
+&lt;li&gt;STDOUT and STDERR encoded to base64 in JSON log&lt;/li&gt;
+&lt;li&gt;STDOUT and STDDER also logged as DEBUG entries even without errors&lt;/li&gt;
+&lt;li&gt;Only take the first line from the &lt;code&gt;task&lt;/code&gt; file&lt;/li&gt;
+&lt;li&gt;A breaking change; exported environment variables must prefix &lt;code&gt;rr__&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Code of script logged along with DEBUG entries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;0110&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#0110&#34;&gt;
+        ###
+    &lt;/a&gt;
+    0.11.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Script start marked as Info&lt;/li&gt;
+&lt;li&gt;Start and Finish now properly marked in json log&lt;/li&gt;
+&lt;li&gt;Contents of &lt;code&gt;task&lt;/code&gt; file used for audit trail&lt;/li&gt;
+&lt;li&gt;Added Bash completion script&lt;/li&gt;
+&lt;li&gt;Replaced ULID with random hexadecimal string&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
       <title>Examples</title>
-      <link>https://taarr.com/examples/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://taarr.com/examples/</guid>
-      <description>&amp;gt;Table of Contents&amp;lt;  Tutorial Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH Install podman to remote Ubuntu 20.04 host   Tutorial In the Git source tree, the TUTORIAL directory contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named avocado
-First you have to setup SSH public-key authentication for a remote host with hostname avocado.</description>
+      <link>/examples/</link>
+      <pubDate>Sat, 29 Jun 2024 00:00:00 +0000</pubDate>
+      <author>propolice@gmail.com (Ed)</author>
+      <guid>/examples/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;Table of Contents&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#tutorial&#34;&gt;Tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#local-invocation-of-scripts&#34;&gt;Local invocation of scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#run-scripts-inside-a-local-container&#34;&gt;Run scripts inside a local container&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#run-scripts-remote-via-ssh&#34;&gt;Run scripts remote via SSH&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-podman-to-remote-ubuntu-2004-host&#34;&gt;Install podman to remote Ubuntu 20.04 host&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;tutorial&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#tutorial&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Tutorial
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;In the Git source tree, the &lt;strong&gt;TUTORIAL&lt;/strong&gt; directory inside &lt;code&gt;README.d&lt;/code&gt; contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named &lt;em&gt;avocado&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;First you have to setup SSH public-key authentication for a remote host with hostname &lt;code&gt;avocado&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Once that is done, you can proceed with the example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd TUTORIAL
+rr avocado sysctl:apply
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;steps-that-rr-performs&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#steps-that-rr-performs&#34;&gt;
+        ###
+    &lt;/a&gt;
+    Steps that &lt;code&gt;rr&lt;/code&gt; performs
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Copies &lt;code&gt;.files-avocado/&lt;/code&gt; to &lt;code&gt;avocado:/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Generates the script:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/bin/sh
+unset IFS
+set -efu
+PATH=/bin:/sbin:/usr/bin:/usr/sbin
+LC_ALL=C
+sysctl --system
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Runs the script on host avocado via SSH.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;local-invocation-of-scripts&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#local-invocation-of-scripts&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Local invocation of scripts
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;Run locally, the default without a hostname or container PID specified.
+&lt;br/&gt;
+Requires &lt;code&gt;tar(1)&lt;/code&gt; for &lt;code&gt;.files&lt;/code&gt;
+&lt;br/&gt;
+The following are equivalent:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;rr namespace:script
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;rr localhost namespace:script
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h1 id=&#34;run-scripts-inside-a-local-container&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#run-scripts-inside-a-local-container&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Run scripts inside a local container
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;NOTE: Linux only&lt;br/&gt;&lt;br/&gt;
+Run on a local container&amp;rsquo;s PID via &lt;code&gt;nsenter(1)&lt;/code&gt;. Requires &lt;code&gt;tar(1)&lt;/code&gt; for &lt;code&gt;.files&lt;/code&gt;.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;rr 1333 namespace:script
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h1 id=&#34;run-scripts-remote-via-ssh&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#run-scripts-remote-via-ssh&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Run scripts remote via SSH
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;Requires OpenSSH 4.7+ for &lt;code&gt;.files&lt;/code&gt;.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;rr remotehost namespace:script
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If a file named &lt;code&gt;.ssh/config&lt;/code&gt; is in the current directory then that is used as the SSH config instead of the default
+&lt;code&gt;~/.ssh/config&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;install-cri-tools-to-remote-ubuntu-host&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#install-cri-tools-to-remote-ubuntu-host&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Install cri-tools to remote Ubuntu host
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ mkdir -p examples/install-critools
+$ cat &amp;gt; examples/install-critools/script &amp;lt;&amp;lt;-&amp;#39;EXAMPLE&amp;#39;
+. /etc/os-release
+echo &amp;#34;deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /&amp;#34; | tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+curl -L &amp;#34;https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key&amp;#34; | apt-key add -
+apt-get update
+apt-get -y install cri-tools
+EXAMPLE
+$ cat .ssh/config
+Host remotemost
+Hostname 203.0.113.1
+User root
+$ rr remotehost example:install-critools
+...
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+</description>
     </item>
     
     <item>
       <title>Howto</title>
-      <link>https://taarr.com/howto/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://taarr.com/howto/</guid>
-      <description> &amp;gt;Table of Contents&amp;lt;  Parallel Execution   Parallel Execution Shell scripts can execute rr natively.
-#!/bin/sh # Run namespace:script in parallel rr somewhere namespace:script &amp;amp; rr another namespace:script &amp;amp; wait # Next step after above rr remotehost namespace:anotherscript </description>
+      <link>/howto/</link>
+      <pubDate>Sat, 29 Jun 2024 00:00:00 +0000</pubDate>
+      <author>propolice@gmail.com (Ed)</author>
+      <guid>/howto/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;Table of Contents&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#parallel-execution&#34;&gt;Parallel Execution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;parallel-execution&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#parallel-execution&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Parallel Execution
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;Shell scripts can execute &lt;code&gt;rr&lt;/code&gt; natively.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/bin/sh
+
+# Run namespace:script in parallel
+rr somewhere namespace:script &amp;amp;
+rr another namespace:script &amp;amp;
+wait
+# Next step after above
+rr remotehost namespace:anotherscript
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
       <title>Reference</title>
-      <link>https://taarr.com/reference/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://taarr.com/reference/</guid>
-      <description>&amp;gt;Table of Contents&amp;lt;  Why Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Idempotence Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
-CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing + drist. Cons mostly outweight the pros.</description>
+      <link>/reference/</link>
+      <pubDate>Sat, 29 Jun 2024 00:00:00 +0000</pubDate>
+      <author>propolice@gmail.com (Ed)</author>
+      <guid>/reference/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;Table of Contents&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#why&#34;&gt;Why&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#multicall-modes&#34;&gt;Multicall Modes&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#console&#34;&gt;Console&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#silent&#34;&gt;Silent&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#dump&#34;&gt;Dump&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#sudo&#34;&gt;Sudo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#log&#34;&gt;Log&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#audit-trail&#34;&gt;Audit Trail&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#readmes&#34;&gt;Readmes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#environment-variables&#34;&gt;Environment Variables&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#idempotence&#34;&gt;Idempotence&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#hierarchy&#34;&gt;Hierarchy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#notes&#34;&gt;Notes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#decision-record&#34;&gt;Decision Record&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;why&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#why&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Why
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.&lt;/p&gt;
+&lt;p&gt;CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing + drist. Cons mostly outweight the pros. Slow and complicated are the common complaints. If you&amp;rsquo;re just templating shell commands then plain shell scripts should suffice.&lt;/p&gt;
+&lt;p&gt;According to the Lindy effect; shell scripts, openssh and tar will outlive these mentioned CM software.&lt;/p&gt;
+&lt;p&gt;Huge shell scripts can be unwieldy. &lt;code&gt;taarr&lt;/code&gt; will help you manage your scripts.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;multicall-modes&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#multicall-modes&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Multicall Modes
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;You can use a symlink to activate the modes.&lt;/p&gt;
+&lt;p&gt;Example for sudo mode:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ln -s rr rrs
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;console&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#console&#34;&gt;
+        ###
+    &lt;/a&gt;
+    Console
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;p&gt;Verbose mode.&lt;/p&gt;
+&lt;p&gt;When called as &lt;code&gt;rrv&lt;/code&gt; &lt;em&gt;or&lt;/em&gt; a console is detected it runs in verbose mode.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ rrv make:yyy
+29 Jun 24 11:55 +0800 rr 2.2.0 “Craving Detonator”
+29 Jun 24 11:55 +0800 Running make:yyy via local…
+29 Jun 24 11:55 +0800 Running yyy…
+ local │ -rw-r--r-- 1 root root 2439 Apr  6 10:39 /etc/passwd
+ local │ stdout last
+29 Jun 24 11:55 +0800 Failure running script!
+ local ┌─ stderr
+ local │
+ local │ stderr
+ local │ next
+ local │ last
+ local │
+ local └─
+ local ┌─ debug
+ local │
+ local │ exit status 255
+ local │
+ local └─
+29 Jun 24 11:55 +0800 Total run time: 1s. Something went wrong.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In this mode it also logs to the file &lt;code&gt;LOG&lt;/code&gt; in the current working directory.&lt;/p&gt;
+&lt;p&gt;NOTE: logs STDOUT and STDERR as a debug entry when no errors are detected&lt;/p&gt;
+&lt;p&gt;TIP: Example command line to extract STDOUT from the log file&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;grep 3EB340F6 LOG | grep stdout | cut -f28 -d\&amp;#34; | base64 -d
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;silent&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#silent&#34;&gt;
+        ###
+    &lt;/a&gt;
+    Silent
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;p&gt;When called as &lt;code&gt;rr&lt;/code&gt; &lt;em&gt;and&lt;/em&gt; a console is not detected it only shows errors as structured JSON.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{&amp;#34;level&amp;#34;:&amp;#34;error&amp;#34;,&amp;#34;stdout&amp;#34;:&amp;#34;ss\n&amp;#34;,&amp;#34;stderr&amp;#34;:&amp;#34;ee\n&amp;#34;,&amp;#34;time&amp;#34;:&amp;#34;2021-07-20T20:16:04+08:00&amp;#34;,&amp;#34;message&amp;#34;:&amp;#34;Output&amp;#34;}
+{&amp;#34;level&amp;#34;:&amp;#34;error&amp;#34;,&amp;#34;elapsed&amp;#34;:&amp;#34;1.798478ms&amp;#34;,&amp;#34;time&amp;#34;:&amp;#34;2021-07-20T20:16:04+08:00&amp;#34;,&amp;#34;message&amp;#34;:&amp;#34;Something went wrong.&amp;#34;}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;dump&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#dump&#34;&gt;
+        ###
+    &lt;/a&gt;
+    Dump
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;p&gt;When called as &lt;code&gt;rrd&lt;/code&gt;, dumps the generated script. This is mainly for debugging and allows running scripts
+generated from a managed namespace without the &lt;code&gt;rr&lt;/code&gt; executable.&lt;/p&gt;
+&lt;h4 id=&#34;sudo&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#sudo&#34;&gt;
+        ###
+    &lt;/a&gt;
+    Sudo
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;p&gt;When called as &lt;code&gt;rrs&lt;/code&gt;, asks for a &lt;code&gt;sudo&lt;/code&gt; password for the remote user. Similar to the ansible options &lt;code&gt;--become -K&lt;/code&gt;.
+Also turns on console mode since a TTY is expected anyway.&lt;/p&gt;
+&lt;h4 id=&#34;log&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#log&#34;&gt;
+        ###
+    &lt;/a&gt;
+    Log
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;p&gt;When called as &lt;code&gt;rrl&lt;/code&gt;, shows a log of executions for audit trail.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;audit-trail&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#audit-trail&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Audit Trail
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;The environment variable &lt;code&gt;LOG&lt;/code&gt; is logged as the &lt;code&gt;log&lt;/code&gt; &lt;code&gt;field&lt;/code&gt;. Without the variable the arguments are used for the field. If no variable or arguments passed then it is logged as &lt;code&gt;UNDEFINED&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This can be useful for audit trails or for changelogs. Before running a script you should set the &lt;code&gt;LOG&lt;/code&gt; environment variable.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;LOG=&amp;#39;Upgrade a thing for bugfix` rr program:upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h1 id=&#34;readmes&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#readmes&#34;&gt;
+        ##
+    &lt;/a&gt;
+    READMEs
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;Any case insensitive file named &lt;code&gt;readme*&lt;/code&gt; in the namespace and script directories can be shown by invoking &lt;code&gt;rr&lt;/code&gt; in the
+following ways:&lt;/p&gt;
+&lt;p&gt;Prints &lt;code&gt;namespace/readme*&lt;/code&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;rr namespace
+rr namespace/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Prints &lt;code&gt;namespace/script/readme*&lt;/code&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;rr namespace/script
+rr namespace/script/
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h1 id=&#34;environment-variables&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#environment-variables&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Environment Variables
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;Any environment variable prefixed with &lt;code&gt;rr__&lt;/code&gt; are passed to the script.&lt;/p&gt;
+&lt;p&gt;For example, the &lt;code&gt;rr__USERNAME=test&lt;/code&gt; environment variable is passed to the script as &lt;code&gt;USERNAME=test&lt;/code&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cat tmp/env/script
+echo $USERNAME
+
+$ env rr__USERNAME=test rr tmp:env
+Thu, 22 Jul 2021 18:13:32 +0800 rr 0.10.0 &amp;#34;Kilowatt Triceps&amp;#34;
+Thu, 22 Jul 2021 18:13:32 +0800 Running tmp:env via local...
+Thu, 22 Jul 2021 18:13:32 +0800 Running env...
+Thu, 22 Jul 2021 18:13:32 +0800 Done. Output:
+ local ┌─ stdout
+ local │
+ local │ test
+ local │ 
+ local └─
+Thu, 22 Jul 2021 18:13:32 +0800 Total run time: 101.648007ms. All OK.
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h1 id=&#34;idempotence&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#idempotence&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Idempotence
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;The default behavior of scripts is to indicate two results: no errors(ok) and
+failure(failed). To emulate idempotence your script can print the following string to STDERR in it&amp;rsquo;s own line and exit 0:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;__REPAIRED__
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;When writing your script you have to check if an operation is needed to apply a
+change or not. Such a precondition can be written like this:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;if test -d /some_dir
+then
+  exit 0
+else
+  {
+    mkdir /some_dir
+  } &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 || exit 1
+  &amp;gt;&amp;amp;2 printf &amp;#34;__REPAIRED__\\n&amp;#34;
+  exit 0
+fi
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In the JSON log and report mode the result value will say &lt;strong&gt;repaired&lt;/strong&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No changes, script exited&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&amp;gt;&lt;/td&gt;
+&lt;td&gt;ok&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Script succesfully executed changes&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&amp;gt;&lt;/td&gt;
+&lt;td&gt;repaired&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Repair needed but unable to apply changes&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&amp;gt;&lt;/td&gt;
+&lt;td&gt;failed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br/&gt;
+To borrow terminology from *CFEngine*. There are no changes when the **desired state** is already the expected outcome.
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Any state&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&amp;gt;&lt;/td&gt;
+&lt;td&gt;Desired state&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Desired state&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&amp;gt;&lt;/td&gt;
+&lt;td&gt;Desired state&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;hierarchy&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#hierarchy&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Hierarchy
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;TOPLEVEL                            &amp;lt;--- Directory of namespaces or a project
+├── .ssh/config                     &amp;lt;--- custom SSH config
+├── .files                          &amp;lt;--- synced to any host
+├── .files-avocado                  &amp;lt;--- synced to the avocado host
+├── .lib                            &amp;lt;--- sourced by all scripts
+└── namespace
+    ├── .files                      &amp;lt;--- synced to any host when namespace:* is called
+    ├── .files-avocado              &amp;lt;--- synced to the avocado host when namespace:* is called
+    ├── .lib                        &amp;lt;--- sourced along with namespace:* scripts
+    ├── readme                      &amp;lt;--- Documentation for namespace
+    └── script directory
+        ├── .files                  &amp;lt;--- synced to any host when namespace:script is called
+        ├── .files-avocado          &amp;lt;--- synced to the avocado host when namespace:script is called
+        ├── .lib                    &amp;lt;--- sourced along with namespace:script scripts
+        ├── readme                  &amp;lt;--- Documentation for script
+        └── script                  &amp;lt;--- the actual shell script
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;notes&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#notes&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Notes
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;Tested on Linux and macOS.&lt;/p&gt;
+&lt;p&gt;Remote host only requires OpenSSH server and &lt;code&gt;tar(1)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Scripts should reference &lt;code&gt;$@&lt;/code&gt; if it wants to use arguments passed.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;decision-record&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#decision-record&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Decision Record
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Environment variables are not logged. They may contain secrets.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>

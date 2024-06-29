@@ -1,182 +1,459 @@
-<!doctype html>
+<!DOCTYPE html>
 
-<html lang="en" class="h-100">
-  <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.88.0" />
-  
-  <meta name="description" content="&gt;Table of Contents&lt;  Tutorial Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH Install podman to remote Ubuntu 20.04 host   Tutorial In the Git source tree, the TUTORIAL directory contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named avocado
-First you have to setup SSH public-key authentication for a remote host with hostname avocado.">
-  <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
-  
-  
-  <title>Examples | rr</title>
-  <style>
-.container {
-  max-width: 1024px;
-}
-#nav a {
-  font-weight: bold;
-  color: inherit;
-}
-#nav a.nav-link-active {
-  background-color: #212529;
-  color: #fff;
-}
-#nav-border {
-  border-bottom: 1px solid #212529;
-}
-#main {
-  margin-top: 1em;
-  margin-bottom: 4em;
-}
-#home-jumbotron {
-  background-color: inherit;
-}
-#footer .container {
-  padding: 1em 0;
-}
-#footer a {
-  color: inherit;
-  text-decoration: underline;
-}
-.font-125 {
-  font-size: 125%;
-}
-.tag-btn {
-  margin-bottom: 0.3em;
-}
-pre {
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 16px;
-}
-pre code {
-  padding: 0;
-  font-size: inherit;
-  color: inherit; 
-  background-color: transparent;
-  border-radius: 0;
-}
-code {
-  padding: 2px 4px;
-  font-size: 90%;
-  color: #c7254e;
-  background-color: #f9f2f4;
-  border-radius: 4px;
-}
-img,
-iframe,
-embed,
-video,
-audio {
-  max-width: 100%;
-}
-.card-img,
-.card-img-top,
-.card-img-bottom {
-  width: initial;
-}
+
+<html lang="en-us" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Examples - taarr</title>
+
+<meta name="description" content="Table of Contents
+Tutorial Local invocation of scripts Run scripts inside a local container Run scripts remote via SSH Install podman to remote Ubuntu 20.">
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="https://taarr.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://taarr.com/favicon.png">
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+<style>
+  body {
+    visibility: hidden;
+    opacity: 0;
+  }
 </style>
+
+<noscript>
+  <style>
+    body {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</noscript>
+
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="https://taarr.com/css/style.min.184a655c5ad8596648622468e6696abf0cf0a2cf8266df17b4f7a36fe9c97551.css" integrity="sha256-GEplXFrYWWZIYiRo5mlqvwzwos&#43;CZt8XtPejb&#43;nJdVE=">
+    
+
+
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="https://taarr.com/css/style.min.c4c04b3ef88e3d619ad4c7ee5e03048422bc55c4fefdc1f07657c1133670aa22.css" integrity="sha256-xMBLPviOPWGa1MfuXgMEhCK8VcT&#43;/cHwdlfBEzZwqiI=">
+    
+
+
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="https://taarr.com/css/style.min.21c5d8fe0a79d623b0adc1ce4bd4f6dd2c05cd939c9aaaa966ba7186b1464f4d.css" integrity="sha256-IcXY/gp51iOwrcHOS9T23SwFzZOcmqqpZrpxhrFGT00=">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <script src="https://taarr.com/js/script.min.08f04d96386c73c9bf4d160333f8f448c05a6e01c06770542ee0e013954ce930.js" type="text/javascript" charset="utf-8" integrity="sha256-CPBNljhsc8m/TRYDM/j0SMBabgHAZ3BULuDgE5VM6TA="></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 </head>
-  <body class="d-flex flex-column h-100">
-    <div id="nav-border" class="container">
-  <nav id="nav" class="nav justify-content-center">
-  
-  
-  
-    
-    
-      
-      
-      
-      
-      
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header class="common-header">
+            
+                <div class="header-top">
+    <div class="header-top-left">
+        <h1 class="site-title noselect">
+    <a href="https://taarr.com/">taarr</a>
+</h1>
+
         
-      
+
+
+
+    
+
+
+
+    
+
+
+
+    
+        <div class="theme-switcher">
+            <span class="inline-svg">
+
+    
+
+
     
     
-    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
-  
     
     
-      
-      
-      
-      
-      
-       
-        
-        
-      
+    
+
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-sun-high"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg>
+
+
+</span>
+
+        </div>
+    
+
+    <script>
+        const STORAGE_KEY = 'user-color-scheme'
+        const defaultTheme = "auto"
+
+        let currentTheme
+        let switchButton
+        let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+        function switchTheme(e) {
+            currentTheme = (currentTheme === 'dark') ? 'light' : 'dark';
+            if (localStorage) localStorage.setItem(STORAGE_KEY, currentTheme);
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            changeGiscusTheme(currentTheme);
+            document.body.dispatchEvent(new CustomEvent(currentTheme + "-theme-set"));
+        }
+
+        const autoChangeScheme = e => {
+            currentTheme = e.matches ? 'dark' : 'light'
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            changeGiscusTheme(currentTheme);
+            document.body.dispatchEvent(new CustomEvent(currentTheme + "-theme-set"));
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            switchButton = document.querySelector('.theme-switcher')
+            currentTheme = detectCurrentScheme()
+
+            if (currentTheme === 'auto') {
+                autoChangeScheme(autoDefinedScheme);
+                autoDefinedScheme.addListener(autoChangeScheme);
+            } else {
+                document.documentElement.setAttribute('data-theme', currentTheme)
+            }
+
+            if (switchButton) {
+                switchButton.addEventListener('click', switchTheme, false)
+            }
+
+            showContent();
+        })
+
+        function detectCurrentScheme() {
+            if (localStorage !== null && localStorage.getItem(STORAGE_KEY)) {
+                return localStorage.getItem(STORAGE_KEY)
+            }
+            if (defaultTheme) {
+                return defaultTheme
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        function showContent() {
+            document.body.style.visibility = 'visible';
+            document.body.style.opacity = 1;
+        }
+
+        function changeGiscusTheme (theme) {
+            function sendMessage(message) {
+              const iframe = document.querySelector('iframe.giscus-frame');
+              if (!iframe) return;
+              iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+            }
+
+            sendMessage({
+              setConfig: {
+                theme: theme
+              }
+            });
+        }
+    </script>
+
+
+        <ul class="social-icons noselect">
+
+
+    
+        <li>
+            <a href="propolice@gmail.com" title="Email" rel="me">
+            <span class="inline-svg">
+
+    
+
+
     
     
-    <a class="nav-link nav-link-active" href="/examples/"><i data-feather="edit"></i> Examples</a>
-  
     
     
-      
-      
-      
-      
-      
-        
-      
+    
+
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
+
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        <li>
+            <a href="https://github.com/tongson/taarr" title="Github" rel="me">
+            <span class="inline-svg">
+
+    
+
+
     
     
-    <a class="nav-link " href="/howto/"><i data-feather="code"></i> Howto</a>
-  
     
     
-      
-      
-      
-      
-      
-        
-      
+    
+
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
+
+
+</span>
+
+            </a>
+        </li>
+    
+
+
+
+
+
+
+    <li>
+            <a href="https://taarr.com/index.xml" title="RSS" rel="me">
+            <span class="inline-svg">
+
+    
+
+
     
     
-    <a class="nav-link " href="/reference/"><i data-feather="book"></i> Reference</a>
-  
     
     
-      
-      
-      
-      
-      
-        
-      
     
+
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M4 4a16 16 0 0 1 16 16" /><path d="M4 11a9 9 0 0 1 9 9" /></svg>
+
+
+</span>
+
+            </a>
+        </li>
     
-    <a class="nav-link " href="/changelog"><i data-feather="play"></i> Changelog</a>
-  
-    
-    
-      
-      
-      
-      
-      
-        
-      
-    
-    
-    <a class="nav-link " href="https://github.com/tongson/rr"><i data-feather="github"></i> Source</a>
-  
-  </nav>
+
+</ul>
+
+    </div>
+    <div class="header-top-right">
+
+    </div>
 </div>
 
-    <div class="container">
-      <main id="main">
+
+    <nav class="noselect">
+        
+        
+        <a class="" href="https://taarr.com/" title="">Home</a>
+        
+        <a class="" href="https://taarr.com/examples/" title="">Examples</a>
+        
+        <a class="" href="https://taarr.com/howto/" title="">Howto</a>
+        
+        <a class="" href="https://taarr.com/reference/" title="">Reference</a>
+        
+        <a class="" href="https://taarr.com/changelog/" title="">Changelog</a>
+        
+    </nav>
+
+
+
+
+
+
+
+
+            
+        </header>
+        <main id="main" tabindex="-1">
+            
+    
+
+    <article class="post h-entry">
+        <div class="post-header">
+            <header>
+                <h1 class="p-name post-title">Examples</h1>
+                
+
+            </header>
+            
+
+    
+
+
+
+<div class="post-info noselect">
+    
+        <div class="post-date dt-published">
+            <time datetime="2024-06-29">2024-06-29</time>
+            
+        </div>
+    
+
+    <a class="post-hidden-url u-url" href="https://taarr.com/examples/">/examples/</a>
+    <a href="https://taarr.com/" class="p-name p-author post-hidden-author h-card" rel="me"></a>
+
+
+    <div class="post-taxonomies">
+        
+        
+        
+    </div>
+</div>
+
+        </div>
         
 
-<h1>Examples</h1>
-<hr>
-<h3 id="table-of-contents">&gt;Table of Contents&lt;</h3>
+  
+  
+    
+  
+
+
+
+
+
+
+<script>
+  var toc = document.querySelector(".toc");
+  if (toc) {
+    toc.addEventListener("click", function () {
+      if (event.target.tagName !== "A") {
+        event.preventDefault();
+        if (this.open) {
+          this.open = false;
+          this.classList.remove("expanded");
+        } else {
+          this.open = true;
+          this.classList.add("expanded");
+        }
+      }
+    });
+  }
+</script>
+
+        <div class="content e-content">
+            <hr>
+<p>Table of Contents</p>
 <ul>
 <li><a href="#tutorial">Tutorial</a></li>
 <li><a href="#local-invocation-of-scripts">Local invocation of scripts</a></li>
@@ -185,14 +462,28 @@ audio {
 <li><a href="#install-podman-to-remote-ubuntu-2004-host">Install podman to remote Ubuntu 20.04 host</a></li>
 </ul>
 <hr>
-<h5 id="tutorial">Tutorial</h5>
-<p>In the Git source tree, the <strong>TUTORIAL</strong> directory contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named <em>avocado</em></p>
-<p>First you have to setup SSH public-key authentication for a remote host with hostname <code>avocado</code>. It&rsquo;s important that the hostnames match.</p>
+<h1 id="tutorial" >
+<div>
+    <a href="#tutorial">
+        ##
+    </a>
+    Tutorial
+</div>
+</h1>
+<p>In the Git source tree, the <strong>TUTORIAL</strong> directory inside <code>README.d</code> contains a hierarchy that persistently enables IP forwarding through sysctl upon the remote SSH host named <em>avocado</em></p>
+<p>First you have to setup SSH public-key authentication for a remote host with hostname <code>avocado</code>.</p>
 <p>Once that is done, you can proceed with the example:</p>
 <pre><code>cd TUTORIAL
 rr avocado sysctl:apply
 </code></pre>
-<h6 id="steps-that-rr-performs">Steps that <code>rr</code> performs</h6>
+<h4 id="steps-that-rr-performs" >
+<div>
+    <a href="#steps-that-rr-performs">
+        ###
+    </a>
+    Steps that <code>rr</code> performs
+</div>
+</h4>
 <ol>
 <li>Copies <code>.files-avocado/</code> to <code>avocado:/</code></li>
 <li>Generates the script:</li>
@@ -207,7 +498,14 @@ sysctl --system
 <li>Runs the script on host avocado via SSH.</li>
 </ol>
 <hr>
-<h5 id="local-invocation-of-scripts">Local invocation of scripts</h5>
+<h1 id="local-invocation-of-scripts" >
+<div>
+    <a href="#local-invocation-of-scripts">
+        ##
+    </a>
+    Local invocation of scripts
+</div>
+</h1>
 <p>Run locally, the default without a hostname or container PID specified.
 <br/>
 Requires <code>tar(1)</code> for <code>.files</code>
@@ -216,83 +514,129 @@ The following are equivalent:</p>
 <pre tabindex="0"><code>rr namespace:script
 </code></pre><pre tabindex="0"><code>rr localhost namespace:script
 </code></pre><hr>
-<h5 id="run-scripts-inside-a-local-container">Run scripts inside a local container</h5>
+<h1 id="run-scripts-inside-a-local-container" >
+<div>
+    <a href="#run-scripts-inside-a-local-container">
+        ##
+    </a>
+    Run scripts inside a local container
+</div>
+</h1>
 <p>NOTE: Linux only<br/><br/>
 Run on a local container&rsquo;s PID via <code>nsenter(1)</code>. Requires <code>tar(1)</code> for <code>.files</code>.</p>
 <pre tabindex="0"><code>rr 1333 namespace:script
 </code></pre><hr>
-<h5 id="run-scripts-remote-via-ssh">Run scripts remote via SSH</h5>
+<h1 id="run-scripts-remote-via-ssh" >
+<div>
+    <a href="#run-scripts-remote-via-ssh">
+        ##
+    </a>
+    Run scripts remote via SSH
+</div>
+</h1>
 <p>Requires OpenSSH 4.7+ for <code>.files</code>.</p>
 <pre tabindex="0"><code>rr remotehost namespace:script
-</code></pre><p>If a file named <code>rr.hosts</code> is in the current directory then that is used as the SSH config instead of the default
+</code></pre><p>If a file named <code>.ssh/config</code> is in the current directory then that is used as the SSH config instead of the default
 <code>~/.ssh/config</code>.</p>
 <hr>
-<h5 id="install-podman-to-remote-ubuntu-2004-host">Install podman to remote Ubuntu 20.04 host</h5>
-<pre tabindex="0"><code>$ mkdir -p examples/install-podman
-$ cat &gt; examples/install-podman/script &lt;&lt;-'EXAMPLE'
+<h1 id="install-cri-tools-to-remote-ubuntu-host" >
+<div>
+    <a href="#install-cri-tools-to-remote-ubuntu-host">
+        ##
+    </a>
+    Install cri-tools to remote Ubuntu host
+</div>
+</h1>
+<pre tabindex="0"><code>$ mkdir -p examples/install-critools
+$ cat &gt; examples/install-critools/script &lt;&lt;-&#39;EXAMPLE&#39;
 . /etc/os-release
-echo &quot;deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /&quot; | tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
-curl -L &quot;https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key&quot; | apt-key add -
+echo &#34;deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /&#34; | tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+curl -L &#34;https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key&#34; | apt-key add -
 apt-get update
-apt-get -y upgrade
-apt-get -y install podman
+apt-get -y install cri-tools
 EXAMPLE
-$ cat rr.hosts
+$ cat .ssh/config
 Host remotemost
 Hostname 203.0.113.1
 User root
-$ rr remotehost example:install-podman
+$ rr remotehost example:install-critools
 ...
 ...
 </code></pre><hr>
 
+        </div>
 
+    </article>
 
-      </main>
-    </div>
     
-<footer id="footer" class="mt-auto text-center text-muted">
-  <div class="container">
-    MIT License 2021
-  </div>
+    
+        
+    
+
+    
+        
+        
+    
+
+    
+
+    
+        
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+        </main>
+        
+            <footer class="common-footer noselect">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+
+        <div style="display: flex; align-items: center; gap:8px">
+            © Ed, 2024
+            
+        </div>
+        <div style="display:flex;align-items: center">
+            
+            
+            
+            
+            
+            
+        </div>
+        <div>
+            Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/Junyi-99/hugo-theme-anubis2">Anubis2</a>.<br>
+            
+
+        </div>
+    </div>
+
+    <p class="h-card vcard">
+
+    <a href=https://taarr.com/ class="p-name u-url url fn" rel="me"></a>
+
+    
+
+    
+</p>
+
 </footer>
 
-    <script src="https://taarr.com/js/feather.min.js"></script>
-<script>
-  feather.replace()
-</script>
-
-
-    
-
-
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
-  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
-  crossorigin="anonymous"
-/>
-
-
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
-  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
-  crossorigin="anonymous"
-></script>
-
-
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
-  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
-  crossorigin="anonymous"
-  onload="renderMathInElement(document.body);"
-></script>
-
-
-    
-  
-
-  </body>
+        
+    </div>
+</body>
 </html>

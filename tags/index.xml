@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on rr</title>
-    <link>https://taarr.com/tags/</link>
-    <description>Recent content in Tags on rr</description>
+    <title>Tags on taarr</title>
+    <link>/tags/</link>
+    <description>taarr (Tags)</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://taarr.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <managingEditor>propolice@gmail.com (Ed)</managingEditor>
+    <webMaster>propolice@gmail.com (Ed)</webMaster>
+    
+    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
   </channel>
 </rss>

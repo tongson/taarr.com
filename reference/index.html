@@ -1,182 +1,459 @@
-<!doctype html>
+<!DOCTYPE html>
 
-<html lang="en" class="h-100">
-  <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.88.0" />
-  
-  <meta name="description" content="&gt;Table of Contents&lt;  Why Multicall Modes  Console Silent Dump Sudo   Audit Trail Readmes Environment Variables Idempotence Hierarchy Notes Decision Record   Why I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.
-CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing &#43; drist. Cons mostly outweight the pros.">
-  <link rel="stylesheet" href="https://taarr.com/css/bootstrap.min.css">
-  
-  
-  <title>Reference | rr</title>
-  <style>
-.container {
-  max-width: 1024px;
-}
-#nav a {
-  font-weight: bold;
-  color: inherit;
-}
-#nav a.nav-link-active {
-  background-color: #212529;
-  color: #fff;
-}
-#nav-border {
-  border-bottom: 1px solid #212529;
-}
-#main {
-  margin-top: 1em;
-  margin-bottom: 4em;
-}
-#home-jumbotron {
-  background-color: inherit;
-}
-#footer .container {
-  padding: 1em 0;
-}
-#footer a {
-  color: inherit;
-  text-decoration: underline;
-}
-.font-125 {
-  font-size: 125%;
-}
-.tag-btn {
-  margin-bottom: 0.3em;
-}
-pre {
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 16px;
-}
-pre code {
-  padding: 0;
-  font-size: inherit;
-  color: inherit; 
-  background-color: transparent;
-  border-radius: 0;
-}
-code {
-  padding: 2px 4px;
-  font-size: 90%;
-  color: #c7254e;
-  background-color: #f9f2f4;
-  border-radius: 4px;
-}
-img,
-iframe,
-embed,
-video,
-audio {
-  max-width: 100%;
-}
-.card-img,
-.card-img-top,
-.card-img-bottom {
-  width: initial;
-}
+
+<html lang="en-us" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Reference - taarr</title>
+
+<meta name="description" content="Table of Contents
+Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment Variables Idempotence Hierarchy Notes Decision Record ## Why I built my own Lua-based configuration management software.">
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="https://taarr.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://taarr.com/favicon.png">
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+<style>
+  body {
+    visibility: hidden;
+    opacity: 0;
+  }
 </style>
+
+<noscript>
+  <style>
+    body {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</noscript>
+
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="https://taarr.com/css/style.min.184a655c5ad8596648622468e6696abf0cf0a2cf8266df17b4f7a36fe9c97551.css" integrity="sha256-GEplXFrYWWZIYiRo5mlqvwzwos&#43;CZt8XtPejb&#43;nJdVE=">
+    
+
+
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="https://taarr.com/css/style.min.c4c04b3ef88e3d619ad4c7ee5e03048422bc55c4fefdc1f07657c1133670aa22.css" integrity="sha256-xMBLPviOPWGa1MfuXgMEhCK8VcT&#43;/cHwdlfBEzZwqiI=">
+    
+
+
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="https://taarr.com/css/style.min.21c5d8fe0a79d623b0adc1ce4bd4f6dd2c05cd939c9aaaa966ba7186b1464f4d.css" integrity="sha256-IcXY/gp51iOwrcHOS9T23SwFzZOcmqqpZrpxhrFGT00=">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <script src="https://taarr.com/js/script.min.08f04d96386c73c9bf4d160333f8f448c05a6e01c06770542ee0e013954ce930.js" type="text/javascript" charset="utf-8" integrity="sha256-CPBNljhsc8m/TRYDM/j0SMBabgHAZ3BULuDgE5VM6TA="></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 </head>
-  <body class="d-flex flex-column h-100">
-    <div id="nav-border" class="container">
-  <nav id="nav" class="nav justify-content-center">
-  
-  
-  
-    
-    
-      
-      
-      
-      
-      
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header class="common-header">
+            
+                <div class="header-top">
+    <div class="header-top-left">
+        <h1 class="site-title noselect">
+    <a href="https://taarr.com/">taarr</a>
+</h1>
+
         
-      
+
+
+
+    
+
+
+
+    
+
+
+
+    
+        <div class="theme-switcher">
+            <span class="inline-svg">
+
+    
+
+
     
     
-    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
-  
     
     
-      
-      
-      
-      
-      
-        
-      
+    
+
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-sun-high"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg>
+
+
+</span>
+
+        </div>
+    
+
+    <script>
+        const STORAGE_KEY = 'user-color-scheme'
+        const defaultTheme = "auto"
+
+        let currentTheme
+        let switchButton
+        let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+        function switchTheme(e) {
+            currentTheme = (currentTheme === 'dark') ? 'light' : 'dark';
+            if (localStorage) localStorage.setItem(STORAGE_KEY, currentTheme);
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            changeGiscusTheme(currentTheme);
+            document.body.dispatchEvent(new CustomEvent(currentTheme + "-theme-set"));
+        }
+
+        const autoChangeScheme = e => {
+            currentTheme = e.matches ? 'dark' : 'light'
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            changeGiscusTheme(currentTheme);
+            document.body.dispatchEvent(new CustomEvent(currentTheme + "-theme-set"));
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            switchButton = document.querySelector('.theme-switcher')
+            currentTheme = detectCurrentScheme()
+
+            if (currentTheme === 'auto') {
+                autoChangeScheme(autoDefinedScheme);
+                autoDefinedScheme.addListener(autoChangeScheme);
+            } else {
+                document.documentElement.setAttribute('data-theme', currentTheme)
+            }
+
+            if (switchButton) {
+                switchButton.addEventListener('click', switchTheme, false)
+            }
+
+            showContent();
+        })
+
+        function detectCurrentScheme() {
+            if (localStorage !== null && localStorage.getItem(STORAGE_KEY)) {
+                return localStorage.getItem(STORAGE_KEY)
+            }
+            if (defaultTheme) {
+                return defaultTheme
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        function showContent() {
+            document.body.style.visibility = 'visible';
+            document.body.style.opacity = 1;
+        }
+
+        function changeGiscusTheme (theme) {
+            function sendMessage(message) {
+              const iframe = document.querySelector('iframe.giscus-frame');
+              if (!iframe) return;
+              iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+            }
+
+            sendMessage({
+              setConfig: {
+                theme: theme
+              }
+            });
+        }
+    </script>
+
+
+        <ul class="social-icons noselect">
+
+
+    
+        <li>
+            <a href="propolice@gmail.com" title="Email" rel="me">
+            <span class="inline-svg">
+
+    
+
+
     
     
-    <a class="nav-link " href="/examples/"><i data-feather="edit"></i> Examples</a>
-  
     
     
-      
-      
-      
-      
-      
-        
-      
+    
+
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
+
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        <li>
+            <a href="https://github.com/tongson/taarr" title="Github" rel="me">
+            <span class="inline-svg">
+
+    
+
+
     
     
-    <a class="nav-link " href="/howto/"><i data-feather="code"></i> Howto</a>
-  
     
     
-      
-      
-      
-      
-      
-       
-        
-        
-      
+    
+
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
+
+
+</span>
+
+            </a>
+        </li>
+    
+
+
+
+
+
+
+    <li>
+            <a href="https://taarr.com/index.xml" title="RSS" rel="me">
+            <span class="inline-svg">
+
+    
+
+
     
     
-    <a class="nav-link nav-link-active" href="/reference/"><i data-feather="book"></i> Reference</a>
-  
     
     
-      
-      
-      
-      
-      
-        
-      
     
+
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M4 4a16 16 0 0 1 16 16" /><path d="M4 11a9 9 0 0 1 9 9" /></svg>
+
+
+</span>
+
+            </a>
+        </li>
     
-    <a class="nav-link " href="/changelog"><i data-feather="play"></i> Changelog</a>
-  
-    
-    
-      
-      
-      
-      
-      
-        
-      
-    
-    
-    <a class="nav-link " href="https://github.com/tongson/rr"><i data-feather="github"></i> Source</a>
-  
-  </nav>
+
+</ul>
+
+    </div>
+    <div class="header-top-right">
+
+    </div>
 </div>
 
-    <div class="container">
-      <main id="main">
+
+    <nav class="noselect">
+        
+        
+        <a class="" href="https://taarr.com/" title="">Home</a>
+        
+        <a class="" href="https://taarr.com/examples/" title="">Examples</a>
+        
+        <a class="" href="https://taarr.com/howto/" title="">Howto</a>
+        
+        <a class="" href="https://taarr.com/reference/" title="">Reference</a>
+        
+        <a class="" href="https://taarr.com/changelog/" title="">Changelog</a>
+        
+    </nav>
+
+
+
+
+
+
+
+
+            
+        </header>
+        <main id="main" tabindex="-1">
+            
+    
+
+    <article class="post h-entry">
+        <div class="post-header">
+            <header>
+                <h1 class="p-name post-title">Reference</h1>
+                
+
+            </header>
+            
+
+    
+
+
+
+<div class="post-info noselect">
+    
+        <div class="post-date dt-published">
+            <time datetime="2024-06-29">2024-06-29</time>
+            
+        </div>
+    
+
+    <a class="post-hidden-url u-url" href="https://taarr.com/reference/">/reference/</a>
+    <a href="https://taarr.com/" class="p-name p-author post-hidden-author h-card" rel="me"></a>
+
+
+    <div class="post-taxonomies">
+        
+        
+        
+    </div>
+</div>
+
+        </div>
         
 
-<h1>Reference</h1>
-<hr>
-<h3 id="table-of-contents">&gt;Table of Contents&lt;</h3>
+  
+  
+    
+  
+
+
+
+
+
+
+<script>
+  var toc = document.querySelector(".toc");
+  if (toc) {
+    toc.addEventListener("click", function () {
+      if (event.target.tagName !== "A") {
+        event.preventDefault();
+        if (this.open) {
+          this.open = false;
+          this.classList.remove("expanded");
+        } else {
+          this.open = true;
+          this.classList.add("expanded");
+        }
+      }
+    });
+  }
+</script>
+
+        <div class="content e-content">
+            <hr>
+<p>Table of Contents</p>
 <ul>
 <li><a href="#why">Why</a></li>
 <li><a href="#multicall-modes">Multicall Modes</a>
@@ -185,6 +462,7 @@ audio {
 <li><a href="#silent">Silent</a></li>
 <li><a href="#dump">Dump</a></li>
 <li><a href="#sudo">Sudo</a></li>
+<li><a href="#log">Log</a></li>
 </ul>
 </li>
 <li><a href="#audit-trail">Audit Trail</a></li>
@@ -196,53 +474,126 @@ audio {
 <li><a href="#decision-record">Decision Record</a></li>
 </ul>
 <hr>
-<h3 id="why">Why</h3>
+<h1 id="why" >
+<div>
+    <a href="#why">
+        ##
+    </a>
+    Why
+</div>
+</h1>
 <p>I built my own Lua-based configuration management software. A little more than thousand commits in, I realized the oneshot nature of shell scripts more convenient.</p>
 <p>CFEngine, Puppet, Chef and others did not offer advantages over a combination of rerun/bashing + drist. Cons mostly outweight the pros. Slow and complicated are the common complaints. If you&rsquo;re just templating shell commands then plain shell scripts should suffice.</p>
 <p>According to the Lindy effect; shell scripts, openssh and tar will outlive these mentioned CM software.</p>
-<p>Huge shell scripts can be unwieldy. <code>rr</code> will help you manage your scripts.</p>
+<p>Huge shell scripts can be unwieldy. <code>taarr</code> will help you manage your scripts.</p>
 <hr>
-<h3 id="multicall-modes">Multicall Modes</h3>
+<h1 id="multicall-modes" >
+<div>
+    <a href="#multicall-modes">
+        ##
+    </a>
+    Multicall Modes
+</div>
+</h1>
 <p>You can use a symlink to activate the modes.</p>
 <p>Example for sudo mode:</p>
 <pre tabindex="0"><code>ln -s rr rrs
-</code></pre><h4 id="console">Console</h4>
+</code></pre><h4 id="console" >
+<div>
+    <a href="#console">
+        ###
+    </a>
+    Console
+</div>
+</h4>
 <p>Verbose mode.</p>
 <p>When called as <code>rrv</code> <em>or</em> a console is detected it runs in verbose mode.</p>
-<pre tabindex="0"><code>Thu, 22 Jul 2021 14:01:43 +0800 rr 0.10.0 &quot;Kilowatt Triceps&quot;
-Thu, 22 Jul 2021 14:01:43 +0800 Running tmp:test via local...
-Thu, 22 Jul 2021 14:01:43 +0800 Running test...
-Thu, 22 Jul 2021 14:01:53 +0800 Done. Output:
- local ┌─ stdout
+<pre tabindex="0"><code>$ rrv make:yyy
+29 Jun 24 11:55 +0800 rr 2.2.0 “Craving Detonator”
+29 Jun 24 11:55 +0800 Running make:yyy via local…
+29 Jun 24 11:55 +0800 Running yyy…
+ local │ -rw-r--r-- 1 root root 2439 Apr  6 10:39 /etc/passwd
+ local │ stdout last
+29 Jun 24 11:55 +0800 Failure running script!
+ local ┌─ stderr
  local │
- local │ 3
- local │ 
+ local │ stderr
+ local │ next
+ local │ last
+ local │
  local └─
-Thu, 22 Jul 2021 14:01:53 +0800 Total run time: 10.059915355s. All OK.
-</code></pre><p>In this mode it also logs to the file <code>rr.json</code> in the current working directory.</p>
+ local ┌─ debug
+ local │
+ local │ exit status 255
+ local │
+ local └─
+29 Jun 24 11:55 +0800 Total run time: 1s. Something went wrong.
+</code></pre><p>In this mode it also logs to the file <code>LOG</code> in the current working directory.</p>
 <p>NOTE: logs STDOUT and STDERR as a debug entry when no errors are detected</p>
 <p>TIP: Example command line to extract STDOUT from the log file</p>
-<pre tabindex="0"><code>grep 5DB2F900F1F1AF2B rr.json | grep stdout | cut -f12 -d\&quot; | base64 -d
-</code></pre><h4 id="silent">Silent</h4>
+<pre tabindex="0"><code>grep 3EB340F6 LOG | grep stdout | cut -f28 -d\&#34; | base64 -d
+</code></pre><h4 id="silent" >
+<div>
+    <a href="#silent">
+        ###
+    </a>
+    Silent
+</div>
+</h4>
 <p>When called as <code>rr</code> <em>and</em> a console is not detected it only shows errors as structured JSON.</p>
-<pre tabindex="0"><code>{&quot;level&quot;:&quot;error&quot;,&quot;stdout&quot;:&quot;ss\n&quot;,&quot;stderr&quot;:&quot;ee\n&quot;,&quot;time&quot;:&quot;2021-07-20T20:16:04+08:00&quot;,&quot;message&quot;:&quot;Output&quot;}
-{&quot;level&quot;:&quot;error&quot;,&quot;elapsed&quot;:&quot;1.798478ms&quot;,&quot;time&quot;:&quot;2021-07-20T20:16:04+08:00&quot;,&quot;message&quot;:&quot;Something went wrong.&quot;}
-</code></pre><h4 id="dump">Dump</h4>
+<pre tabindex="0"><code>{&#34;level&#34;:&#34;error&#34;,&#34;stdout&#34;:&#34;ss\n&#34;,&#34;stderr&#34;:&#34;ee\n&#34;,&#34;time&#34;:&#34;2021-07-20T20:16:04+08:00&#34;,&#34;message&#34;:&#34;Output&#34;}
+{&#34;level&#34;:&#34;error&#34;,&#34;elapsed&#34;:&#34;1.798478ms&#34;,&#34;time&#34;:&#34;2021-07-20T20:16:04+08:00&#34;,&#34;message&#34;:&#34;Something went wrong.&#34;}
+</code></pre><h4 id="dump" >
+<div>
+    <a href="#dump">
+        ###
+    </a>
+    Dump
+</div>
+</h4>
 <p>When called as <code>rrd</code>, dumps the generated script. This is mainly for debugging and allows running scripts
 generated from a managed namespace without the <code>rr</code> executable.</p>
-<h4 id="sudo">Sudo</h4>
+<h4 id="sudo" >
+<div>
+    <a href="#sudo">
+        ###
+    </a>
+    Sudo
+</div>
+</h4>
 <p>When called as <code>rrs</code>, asks for a <code>sudo</code> password for the remote user. Similar to the ansible options <code>--become -K</code>.
 Also turns on console mode since a TTY is expected anyway.</p>
+<h4 id="log" >
+<div>
+    <a href="#log">
+        ###
+    </a>
+    Log
+</div>
+</h4>
+<p>When called as <code>rrl</code>, shows a log of executions for audit trail.</p>
 <hr>
-<h3 id="audit-trail">Audit Trail</h3>
-<p>The contents of the <code>TASK</code> file logged as the <code>message</code> field and task <code>field</code>. Without the <code>task</code> file
-the default is <code>UNDEFINED</code>. It can be overriden by the environment variable <code>TASK</code>.</p>
-<p>This can be useful for audit trails or for changelogs. Before running a script you should fill up <code>TASK</code>.</p>
-<pre tabindex="0"><code>echo 'Upgrade a thing for bugfix' &gt; TASK
-rr program:upgrade
+<h1 id="audit-trail" >
+<div>
+    <a href="#audit-trail">
+        ##
+    </a>
+    Audit Trail
+</div>
+</h1>
+<p>The environment variable <code>LOG</code> is logged as the <code>log</code> <code>field</code>. Without the variable the arguments are used for the field. If no variable or arguments passed then it is logged as <code>UNDEFINED</code>.</p>
+<p>This can be useful for audit trails or for changelogs. Before running a script you should set the <code>LOG</code> environment variable.</p>
+<pre tabindex="0"><code>LOG=&#39;Upgrade a thing for bugfix` rr program:upgrade
 </code></pre><hr>
-<h3 id="readmes">READMEs</h3>
-<p>Any case insensitive file named <code>readme*</code> in the namespace and script directories can be shown by invoking <code>rr</code> by the
+<h1 id="readmes" >
+<div>
+    <a href="#readmes">
+        ##
+    </a>
+    READMEs
+</div>
+</h1>
+<p>Any case insensitive file named <code>readme*</code> in the namespace and script directories can be shown by invoking <code>rr</code> in the
 following ways:</p>
 <p>Prints <code>namespace/readme*</code></p>
 <pre tabindex="0"><code>rr namespace
@@ -251,14 +602,21 @@ rr namespace/
 <pre tabindex="0"><code>rr namespace/script
 rr namespace/script/
 </code></pre><hr>
-<h3 id="environment-variables">Environment Variables</h3>
+<h1 id="environment-variables" >
+<div>
+    <a href="#environment-variables">
+        ##
+    </a>
+    Environment Variables
+</div>
+</h1>
 <p>Any environment variable prefixed with <code>rr__</code> are passed to the script.</p>
 <p>For example, the <code>rr__USERNAME=test</code> environment variable is passed to the script as <code>USERNAME=test</code></p>
 <pre tabindex="0"><code>$ cat tmp/env/script
 echo $USERNAME
 
 $ env rr__USERNAME=test rr tmp:env
-Thu, 22 Jul 2021 18:13:32 +0800 rr 0.10.0 &quot;Kilowatt Triceps&quot;
+Thu, 22 Jul 2021 18:13:32 +0800 rr 0.10.0 &#34;Kilowatt Triceps&#34;
 Thu, 22 Jul 2021 18:13:32 +0800 Running tmp:env via local...
 Thu, 22 Jul 2021 18:13:32 +0800 Running env...
 Thu, 22 Jul 2021 18:13:32 +0800 Done. Output:
@@ -269,10 +627,17 @@ Thu, 22 Jul 2021 18:13:32 +0800 Done. Output:
  local └─
 Thu, 22 Jul 2021 18:13:32 +0800 Total run time: 101.648007ms. All OK.
 </code></pre><hr>
-<h3 id="idempotence">Idempotence</h3>
+<h1 id="idempotence" >
+<div>
+    <a href="#idempotence">
+        ##
+    </a>
+    Idempotence
+</div>
+</h1>
 <p>The default behavior of scripts is to indicate two results: no errors(ok) and
-failure(failed). To emulate idempotence your script can print the following string to STDOUT in it&rsquo;s own line:</p>
-<pre tabindex="0"><code>+++++repaired+++++
+failure(failed). To emulate idempotence your script can print the following string to STDERR in it&rsquo;s own line and exit 0:</p>
+<pre tabindex="0"><code>__REPAIRED__
 </code></pre><p>When writing your script you have to check if an operation is needed to apply a
 change or not. Such a precondition can be written like this:</p>
 <pre tabindex="0"><code>if test -d /some_dir
@@ -282,7 +647,7 @@ else
   {
     mkdir /some_dir
   } &gt;/dev/null 2&gt;&amp;1 || exit 1
-  printf &quot;+++++repaired+++++\\n&quot;
+  &gt;&amp;2 printf &#34;__REPAIRED__\\n&#34;
   exit 0
 fi
 </code></pre><p>In the JSON log and report mode the result value will say <strong>repaired</strong>.</p>
@@ -339,9 +704,16 @@ To borrow terminology from *CFEngine*. There are no changes when the **desired s
 </table>
 <br/>
 <hr>
-<h3 id="hierarchy">Hierarchy</h3>
+<h1 id="hierarchy" >
+<div>
+    <a href="#hierarchy">
+        ##
+    </a>
+    Hierarchy
+</div>
+</h1>
 <pre><code>TOPLEVEL                            &lt;--- Directory of namespaces or a project
-├── rr.hosts                        &lt;--- custom SSH config
+├── .ssh/config                     &lt;--- custom SSH config
 ├── .files                          &lt;--- synced to any host
 ├── .files-avocado                  &lt;--- synced to the avocado host
 ├── .lib                            &lt;--- sourced by all scripts
@@ -355,67 +727,106 @@ To borrow terminology from *CFEngine*. There are no changes when the **desired s
         ├── .files-avocado          &lt;--- synced to the avocado host when namespace:script is called
         ├── .lib                    &lt;--- sourced along with namespace:script scripts
         ├── readme                  &lt;--- Documentation for script
-        ├── task                    &lt;--- Companion to readme, used to log current task
         └── script                  &lt;--- the actual shell script
 </code></pre>
 <hr>
-<h3 id="notes">Notes</h3>
+<h1 id="notes" >
+<div>
+    <a href="#notes">
+        ##
+    </a>
+    Notes
+</div>
+</h1>
 <p>Tested on Linux and macOS.</p>
 <p>Remote host only requires OpenSSH server and <code>tar(1)</code>.</p>
 <p>Scripts should reference <code>$@</code> if it wants to use arguments passed.</p>
 <hr>
-<h3 id="decision-record">Decision Record</h3>
+<h1 id="decision-record" >
+<div>
+    <a href="#decision-record">
+        ##
+    </a>
+    Decision Record
+</div>
+</h1>
 <ul>
 <li>Environment variables are not logged. They may contain secrets.</li>
 </ul>
 
+        </div>
 
+    </article>
 
-      </main>
-    </div>
     
-<footer id="footer" class="mt-auto text-center text-muted">
-  <div class="container">
-    MIT License 2021
-  </div>
+    
+        
+    
+
+    
+        
+        
+    
+
+    
+
+    
+        
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+        </main>
+        
+            <footer class="common-footer noselect">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+
+        <div style="display: flex; align-items: center; gap:8px">
+            © Ed, 2024
+            
+        </div>
+        <div style="display:flex;align-items: center">
+            
+            
+            
+            
+            
+            
+        </div>
+        <div>
+            Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/Junyi-99/hugo-theme-anubis2">Anubis2</a>.<br>
+            
+
+        </div>
+    </div>
+
+    <p class="h-card vcard">
+
+    <a href=https://taarr.com/ class="p-name u-url url fn" rel="me"></a>
+
+    
+
+    
+</p>
+
 </footer>
 
-    <script src="https://taarr.com/js/feather.min.js"></script>
-<script>
-  feather.replace()
-</script>
-
-
-    
-
-
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
-  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
-  crossorigin="anonymous"
-/>
-
-
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
-  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
-  crossorigin="anonymous"
-></script>
-
-
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
-  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
-  crossorigin="anonymous"
-  onload="renderMathInElement(document.body);"
-></script>
-
-
-    
-  
-
-  </body>
+        
+    </div>
+</body>
 </html>
