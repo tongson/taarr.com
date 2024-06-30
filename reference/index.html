@@ -13,7 +13,7 @@
 <title>Reference - taarr</title>
 
 <meta name="description" content="Table of Contents
-Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment Variables Idempotence Hierarchy Notes Decision Record ## Why I built my own Lua-based configuration management software.">
+Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment Variables Idempotence Hierarchy Shell Notes Decision Record ## Why I built my own Lua-based configuration management software.">
 
 
 
@@ -404,7 +404,7 @@ Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment
 <div class="post-info noselect">
     
         <div class="post-date dt-published">
-            <time datetime="2024-06-29">2024-06-29</time>
+            <time datetime="2024-06-30">2024-06-30</time>
             
         </div>
     
@@ -470,6 +470,7 @@ Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment
 <li><a href="#environment-variables">Environment Variables</a></li>
 <li><a href="#idempotence">Idempotence</a></li>
 <li><a href="#hierarchy">Hierarchy</a></li>
+<li><a href="#shell">Shell</a></li>
 <li><a href="#notes">Notes</a></li>
 <li><a href="#decision-record">Decision Record</a></li>
 </ul>
@@ -727,9 +728,23 @@ To borrow terminology from *CFEngine*. There are no changes when the **desired s
         ├── .files-avocado          &lt;--- synced to the avocado host when namespace:script is called
         ├── .lib                    &lt;--- sourced along with namespace:script scripts
         ├── readme                  &lt;--- Documentation for script
-        └── script                  &lt;--- the actual shell script
+        ├── script                  &lt;--- the actual shell script
+        └── shell                   &lt;--- shell interpreter for the script
 </code></pre>
 <hr>
+<h1 id="shell" >
+<div>
+    <a href="#shell">
+        ##
+    </a>
+    Shell
+</div>
+</h1>
+<p>The shell used to run the script can be set within the file <code>namespace/script/shell</code>. Example:
+<br/></p>
+<pre tabindex="0"><code>$ cat namespace/script/shell
+/usr/bin/fish
+</code></pre><hr>
 <h1 id="notes" >
 <div>
     <a href="#notes">

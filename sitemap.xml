@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+        <loc>https://taarr.com/examples/</loc>
+        <lastmod>2024-06-30T00:00:00+00:00</lastmod>
+      </url><url>
+        <loc>https://taarr.com/reference/</loc>
+        <lastmod>2024-06-30T00:00:00+00:00</lastmod>
+      </url><url>
         <loc>https://taarr.com/</loc>
         <lastmod>2024-06-29T00:00:00+00:00</lastmod>
       </url><url>
         <loc>https://taarr.com/changelog/</loc>
         <lastmod>2024-06-29T00:00:00+00:00</lastmod>
       </url><url>
-        <loc>https://taarr.com/examples/</loc>
-        <lastmod>2024-06-29T00:00:00+00:00</lastmod>
-      </url><url>
         <loc>https://taarr.com/howto/</loc>
-        <lastmod>2024-06-29T00:00:00+00:00</lastmod>
-      </url><url>
-        <loc>https://taarr.com/reference/</loc>
         <lastmod>2024-06-29T00:00:00+00:00</lastmod>
       </url><url>
         <loc>https://taarr.com/categories/</loc>
