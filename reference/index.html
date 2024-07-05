@@ -13,7 +13,7 @@
 <title>Reference - taarr</title>
 
 <meta name="description" content="Table of Contents
-Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment Variables Idempotence Hierarchy Shell Notes Decision Record ## Why I built my own Lua-based configuration management software.">
+Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment Variables Idempotence Hierarchy VARS Shell Notes Decision Record ## Why I built my own Lua-based configuration management software.">
 
 
 
@@ -404,7 +404,7 @@ Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment
 <div class="post-info noselect">
     
         <div class="post-date dt-published">
-            <time datetime="2024-06-30">2024-06-30</time>
+            <time datetime="2024-07-05">2024-07-05</time>
             
         </div>
     
@@ -470,6 +470,7 @@ Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment
 <li><a href="#environment-variables">Environment Variables</a></li>
 <li><a href="#idempotence">Idempotence</a></li>
 <li><a href="#hierarchy">Hierarchy</a></li>
+<li><a href="#vars">VARS</a></li>
 <li><a href="#shell">Shell</a></li>
 <li><a href="#notes">Notes</a></li>
 <li><a href="#decision-record">Decision Record</a></li>
@@ -572,7 +573,7 @@ Also turns on console mode since a TTY is expected anyway.</p>
     Log
 </div>
 </h4>
-<p>When called as <code>rrl</code>, shows a log of executions for audit trail.</p>
+<p>When called as <code>rrl</code>, reads the JSON file <code>LOG</code> then shows a log of executions for audit trail.</p>
 <hr>
 <h1 id="audit-trail" >
 <div>
@@ -582,6 +583,7 @@ Also turns on console mode since a TTY is expected anyway.</p>
     Audit Trail
 </div>
 </h1>
+<p>A log is generated for each script invocation. The JSON file <code>LOG</code> contains an audit trail of all script invocations.</p>
 <p>The environment variable <code>LOG</code> is logged as the <code>log</code> <code>field</code>. Without the variable the arguments are used for the field. If no variable or arguments passed then it is logged as <code>UNDEFINED</code>.</p>
 <p>This can be useful for audit trails or for changelogs. Before running a script you should set the <code>LOG</code> environment variable.</p>
 <pre tabindex="0"><code>LOG=&#39;Upgrade a thing for bugfix` rr program:upgrade
@@ -591,9 +593,26 @@ Also turns on console mode since a TTY is expected anyway.</p>
     <a href="#readmes">
         ##
     </a>
-    READMEs
+    Readmes
 </div>
 </h1>
+<h4 id="top-level" >
+<div>
+    <a href="#top-level">
+        ###
+    </a>
+    Top-level
+</div>
+</h4>
+<p>When invoked without any arguments, <code>rr</code> prints the <code>README</code> in the current working directory.</p>
+<h4 id="namespacescript" >
+<div>
+    <a href="#namespacescript">
+        ###
+    </a>
+    namespace/script
+</div>
+</h4>
 <p>Any case insensitive file named <code>readme*</code> in the namespace and script directories can be shown by invoking <code>rr</code> in the
 following ways:</p>
 <p>Prints <code>namespace/readme*</code></p>
@@ -717,7 +736,9 @@ To borrow terminology from *CFEngine*. There are no changes when the **desired s
 ├── .ssh/config                     &lt;--- custom SSH config
 ├── .files                          &lt;--- synced to any host
 ├── .files-avocado                  &lt;--- synced to the avocado host
-├── .lib                            &lt;--- sourced by all scripts
+├── .lib                            &lt;--- files sourced by all scripts
+├── VARS                            &lt;--- sourced by all scripts, ideal for frequently changed variables
+├── LOG                             &lt;--- Log generated (JSON); can be printed with `rrl`
 └── namespace
     ├── .files                      &lt;--- synced to any host when namespace:* is called
     ├── .files-avocado              &lt;--- synced to the avocado host when namespace:* is called
@@ -731,6 +752,16 @@ To borrow terminology from *CFEngine*. There are no changes when the **desired s
         ├── script                  &lt;--- the actual shell script
         └── shell                   &lt;--- shell interpreter for the script
 </code></pre>
+<hr>
+<h1 id="vars" >
+<div>
+    <a href="#vars">
+        ##
+    </a>
+    VARS
+</div>
+</h1>
+<p>The <code>VARS</code> file is sourced by all scripts in all namespaces. It is ideal for variables that frequently change.</p>
 <hr>
 <h1 id="shell" >
 <div>

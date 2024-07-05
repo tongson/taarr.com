@@ -12,9 +12,9 @@
 
 <title>Howto - taarr</title>
 
-<meta name="description" content=" Table of Contents
+<meta name="description" content="Table of Contents
 Parallel Execution ## Parallel Execution Shell scripts can execute rr natively.
-#!/bin/sh # Run namespace:script in parallel rr somewhere namespace:script &amp; rr another namespace:script &amp; wait # Next step after above rr remotehost namespace:anotherscript ">
+#!/bin/sh # Run namespace:script in parallel rr somewhere namespace:script &amp; rr another namespace:script &amp; wait # Next step after above rr remotehost namespace:anotherscript ## Multiple hosts For loops can be used to execute scripts on multiple hosts.">
 
 
 
@@ -476,6 +476,17 @@ rr another namespace:script &amp;
 wait
 # Next step after above
 rr remotehost namespace:anotherscript
+</code></pre><hr>
+<h1 id="multiple-hosts" >
+<div>
+    <a href="#multiple-hosts">
+        ##
+    </a>
+    Multiple hosts
+</div>
+</h1>
+<p>For loops can be used to execute scripts on multiple hosts.</p>
+<pre tabindex="0"><code>$ for x in remotehost1 remotehost2; do rru $x namespace:script; done
 </code></pre>
         </div>
 
