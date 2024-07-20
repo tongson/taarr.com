@@ -8,7 +8,7 @@
     <language>en-us</language>
     <managingEditor>propolice@gmail.com (Ed)</managingEditor>
     <webMaster>propolice@gmail.com (Ed)</webMaster>
-    <lastBuildDate>Fri, 05 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jul 2024 00:00:00 +0000</lastBuildDate>
     
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,10 +16,24 @@
     <item>
       <title>Changelog</title>
       <link>/changelog/</link>
-      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Jul 2024 00:00:00 +0000</pubDate>
       <author>propolice@gmail.com (Ed)</author>
       <guid>/changelog/</guid>
-      <description>&lt;h4 id=&#34;221&#34; &gt;
+      <description>&lt;h4 id=&#34;230&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#230&#34;&gt;
+        ###
+    &lt;/a&gt;
+    2.3.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;p&gt;Compacted Monastery&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prelude (script.pre) and epilogue (script.post) scripts&lt;/li&gt;
+&lt;li&gt;Update dependencies&lt;/li&gt;
+&lt;li&gt;Major refactor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;221&#34; &gt;
 &lt;div&gt;
     &lt;a href=&#34;#221&#34;&gt;
         ###
@@ -323,14 +337,14 @@
     <item>
       <title>Reference</title>
       <link>/reference/</link>
-      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Jul 2024 00:00:00 +0000</pubDate>
       <author>propolice@gmail.com (Ed)</author>
       <guid>/reference/</guid>
       <description>&lt;hr&gt;
 &lt;p&gt;Table of Contents&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#why&#34;&gt;Why&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#multicall-modes&#34;&gt;Multicall Modes&lt;/a&gt;
+&lt;li&gt;&lt;a href=&#34;#multicall-modes&#34;&gt;Multicall modes&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#console&#34;&gt;Console&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#silent&#34;&gt;Silent&lt;/a&gt;&lt;/li&gt;
@@ -339,15 +353,15 @@
 &lt;li&gt;&lt;a href=&#34;#log&#34;&gt;Log&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#audit-trail&#34;&gt;Audit Trail&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#audit-trail&#34;&gt;Audit trail&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#readmes&#34;&gt;Readmes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#environment-variables&#34;&gt;Environment Variables&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#environment-variables&#34;&gt;Environment variables&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#idempotence&#34;&gt;Idempotence&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#hierarchy&#34;&gt;Hierarchy&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#vars&#34;&gt;VARS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#shell&#34;&gt;Shell&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#notes&#34;&gt;Notes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#decision-record&#34;&gt;Decision Record&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#decision-record&#34;&gt;Decision record&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;why&#34; &gt;
@@ -368,7 +382,7 @@
     &lt;a href=&#34;#multicall-modes&#34;&gt;
         ##
     &lt;/a&gt;
-    Multicall Modes
+    Multicall modes
 &lt;/div&gt;
 &lt;/h1&gt;
 &lt;p&gt;You can use a symlink to activate the modes.&lt;/p&gt;
@@ -454,7 +468,7 @@ Also turns on console mode since a TTY is expected anyway.&lt;/p&gt;
     &lt;a href=&#34;#audit-trail&#34;&gt;
         ##
     &lt;/a&gt;
-    Audit Trail
+    Audit trail
 &lt;/div&gt;
 &lt;/h1&gt;
 &lt;p&gt;A log is generated for each script invocation. The JSON file &lt;code&gt;LOG&lt;/code&gt; contains an audit trail of all script invocations.&lt;/p&gt;
@@ -501,7 +515,7 @@ rr namespace/script/
     &lt;a href=&#34;#environment-variables&#34;&gt;
         ##
     &lt;/a&gt;
-    Environment Variables
+    Environment variables
 &lt;/div&gt;
 &lt;/h1&gt;
 &lt;p&gt;Any environment variable prefixed with &lt;code&gt;rr__&lt;/code&gt; are passed to the script.&lt;/p&gt;
@@ -607,12 +621,12 @@ To borrow terminology from *CFEngine*. There are no changes when the **desired s
 &lt;/div&gt;
 &lt;/h1&gt;
 &lt;pre&gt;&lt;code&gt;TOPLEVEL                            &amp;lt;--- Directory of namespaces or a project
-├── .ssh/config                     &amp;lt;--- custom SSH config
 ├── .files                          &amp;lt;--- synced to any host
 ├── .files-avocado                  &amp;lt;--- synced to the avocado host
 ├── .lib                            &amp;lt;--- files sourced by all scripts
 ├── VARS                            &amp;lt;--- sourced by all scripts, ideal for frequently changed variables
 ├── LOG                             &amp;lt;--- Log generated (JSON); can be printed with `rrl`
+├── HOSTS                           &amp;lt;--- custom SSH config
 └── namespace
     ├── .files                      &amp;lt;--- synced to any host when namespace:* is called
     ├── .files-avocado              &amp;lt;--- synced to the avocado host when namespace:* is called
@@ -623,7 +637,9 @@ To borrow terminology from *CFEngine*. There are no changes when the **desired s
         ├── .files-avocado          &amp;lt;--- synced to the avocado host when namespace:script is called
         ├── .lib                    &amp;lt;--- sourced along with namespace:script scripts
         ├── readme                  &amp;lt;--- Documentation for script
-        ├── script                  &amp;lt;--- the actual shell script
+        ├── script                  &amp;lt;--- the main shell script
+        ├── script.pre              &amp;lt;--- run before the main script
+        ├── script.post             &amp;lt;--- run after the main script
         └── shell                   &amp;lt;--- shell interpreter for the script
 &lt;/code&gt;&lt;/pre&gt;
 &lt;hr&gt;
@@ -667,7 +683,7 @@ To borrow terminology from *CFEngine*. There are no changes when the **desired s
     &lt;a href=&#34;#decision-record&#34;&gt;
         ##
     &lt;/a&gt;
-    Decision Record
+    Decision record
 &lt;/div&gt;
 &lt;/h1&gt;
 &lt;ul&gt;
@@ -804,7 +820,8 @@ $ rr remotehost example:install-critools
       <description>&lt;hr&gt;
 &lt;p&gt;Table of Contents&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#parallel-execution&#34;&gt;Parallel Execution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#parallel-execution&#34;&gt;Parallel execution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#multiple-hosts&#34;&gt;Multiple hosts&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;parallel-execution&#34; &gt;
@@ -812,7 +829,7 @@ $ rr remotehost example:install-critools
     &lt;a href=&#34;#parallel-execution&#34;&gt;
         ##
     &lt;/a&gt;
-    Parallel Execution
+    Parallel execution
 &lt;/div&gt;
 &lt;/h1&gt;
 &lt;p&gt;Shell scripts can execute &lt;code&gt;rr&lt;/code&gt; natively.&lt;/p&gt;

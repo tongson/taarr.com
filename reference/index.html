@@ -13,7 +13,7 @@
 <title>Reference - taarr</title>
 
 <meta name="description" content="Table of Contents
-Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment Variables Idempotence Hierarchy VARS Shell Notes Decision Record ## Why I built my own Lua-based configuration management software.">
+Why Multicall modes Console Silent Dump Sudo Log Audit trail Readmes Environment variables Idempotence Hierarchy VARS Shell Notes Decision record ## Why I built my own Lua-based configuration management software.">
 
 
 
@@ -404,7 +404,7 @@ Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment
 <div class="post-info noselect">
     
         <div class="post-date dt-published">
-            <time datetime="2024-07-05">2024-07-05</time>
+            <time datetime="2024-07-20">2024-07-20</time>
             
         </div>
     
@@ -456,7 +456,7 @@ Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment
 <p>Table of Contents</p>
 <ul>
 <li><a href="#why">Why</a></li>
-<li><a href="#multicall-modes">Multicall Modes</a>
+<li><a href="#multicall-modes">Multicall modes</a>
 <ul>
 <li><a href="#console">Console</a></li>
 <li><a href="#silent">Silent</a></li>
@@ -465,15 +465,15 @@ Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment
 <li><a href="#log">Log</a></li>
 </ul>
 </li>
-<li><a href="#audit-trail">Audit Trail</a></li>
+<li><a href="#audit-trail">Audit trail</a></li>
 <li><a href="#readmes">Readmes</a></li>
-<li><a href="#environment-variables">Environment Variables</a></li>
+<li><a href="#environment-variables">Environment variables</a></li>
 <li><a href="#idempotence">Idempotence</a></li>
 <li><a href="#hierarchy">Hierarchy</a></li>
 <li><a href="#vars">VARS</a></li>
 <li><a href="#shell">Shell</a></li>
 <li><a href="#notes">Notes</a></li>
-<li><a href="#decision-record">Decision Record</a></li>
+<li><a href="#decision-record">Decision record</a></li>
 </ul>
 <hr>
 <h1 id="why" >
@@ -494,7 +494,7 @@ Why Multicall Modes Console Silent Dump Sudo Log Audit Trail Readmes Environment
     <a href="#multicall-modes">
         ##
     </a>
-    Multicall Modes
+    Multicall modes
 </div>
 </h1>
 <p>You can use a symlink to activate the modes.</p>
@@ -580,7 +580,7 @@ Also turns on console mode since a TTY is expected anyway.</p>
     <a href="#audit-trail">
         ##
     </a>
-    Audit Trail
+    Audit trail
 </div>
 </h1>
 <p>A log is generated for each script invocation. The JSON file <code>LOG</code> contains an audit trail of all script invocations.</p>
@@ -627,7 +627,7 @@ rr namespace/script/
     <a href="#environment-variables">
         ##
     </a>
-    Environment Variables
+    Environment variables
 </div>
 </h1>
 <p>Any environment variable prefixed with <code>rr__</code> are passed to the script.</p>
@@ -733,12 +733,12 @@ To borrow terminology from *CFEngine*. There are no changes when the **desired s
 </div>
 </h1>
 <pre><code>TOPLEVEL                            &lt;--- Directory of namespaces or a project
-├── .ssh/config                     &lt;--- custom SSH config
 ├── .files                          &lt;--- synced to any host
 ├── .files-avocado                  &lt;--- synced to the avocado host
 ├── .lib                            &lt;--- files sourced by all scripts
 ├── VARS                            &lt;--- sourced by all scripts, ideal for frequently changed variables
 ├── LOG                             &lt;--- Log generated (JSON); can be printed with `rrl`
+├── HOSTS                           &lt;--- custom SSH config
 └── namespace
     ├── .files                      &lt;--- synced to any host when namespace:* is called
     ├── .files-avocado              &lt;--- synced to the avocado host when namespace:* is called
@@ -749,7 +749,9 @@ To borrow terminology from *CFEngine*. There are no changes when the **desired s
         ├── .files-avocado          &lt;--- synced to the avocado host when namespace:script is called
         ├── .lib                    &lt;--- sourced along with namespace:script scripts
         ├── readme                  &lt;--- Documentation for script
-        ├── script                  &lt;--- the actual shell script
+        ├── script                  &lt;--- the main shell script
+        ├── script.pre              &lt;--- run before the main script
+        ├── script.post             &lt;--- run after the main script
         └── shell                   &lt;--- shell interpreter for the script
 </code></pre>
 <hr>
@@ -793,7 +795,7 @@ To borrow terminology from *CFEngine*. There are no changes when the **desired s
     <a href="#decision-record">
         ##
     </a>
-    Decision Record
+    Decision record
 </div>
 </h1>
 <ul>
