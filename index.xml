@@ -8,7 +8,7 @@
     <language>en-us</language>
     <managingEditor>propolice@gmail.com (Ed)</managingEditor>
     <webMaster>propolice@gmail.com (Ed)</webMaster>
-    <lastBuildDate>Sat, 20 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Sep 2024 00:00:00 +0000</lastBuildDate>
     
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,10 +16,25 @@
     <item>
       <title>Changelog</title>
       <link>/changelog/</link>
-      <pubDate>Sat, 20 Jul 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
       <author>propolice@gmail.com (Ed)</author>
       <guid>/changelog/</guid>
-      <description>&lt;h4 id=&#34;230&#34; &gt;
+      <description>&lt;h4 id=&#34;240&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#240&#34;&gt;
+        ###
+    &lt;/a&gt;
+    2.4.0
+&lt;/div&gt;
+&lt;/h4&gt;
+&lt;p&gt;Sulk Harmonics&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Support no-namespace scripts rr no_namespace&lt;/li&gt;
+&lt;li&gt;No longer support funky arg:one:two arguments&lt;/li&gt;
+&lt;li&gt;Update dependencies&lt;/li&gt;
+&lt;li&gt;Fix panic related to reading from nonexistent script directory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;230&#34; &gt;
 &lt;div&gt;
     &lt;a href=&#34;#230&#34;&gt;
         ###
